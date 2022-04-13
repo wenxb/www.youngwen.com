@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>Java 环境变量配置及 Tomcat 的安装 - 温落阁</title><meta name="author" content="WENXB"><meta name="description" content="Tomact 简介Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，是开发和调试JSP 程序的首选 Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式 简单来说就是在电脑上开启一个空间，用户可以访问里面的东西，主要用于jsp 配置 Java 环境变量JSP 是基于Java的，所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 环境变量配置及 Tomcat 的安装">
+<meta property="og:url" content="https://www.youngwen.com/p/7828e038.html">
+<meta property="og:site_name" content="温落阁">
+<meta property="og:description" content="Tomact 简介Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，是开发和调试JSP 程序的首选 Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式 简单来说就是在电脑上开启一个空间，用户可以访问里面的东西，主要用于jsp 配置 Java 环境变量JSP 是基于Java的，所">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.youngwen.com/img/202204102121719.jpg">
+<meta property="article:published_time" content="2022-04-10T09:09:36.000Z">
+<meta property="article:modified_time" content="2022-04-10T13:21:46.817Z">
+<meta property="article:author" content="WENXB">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.youngwen.com/img/202204102121719.jpg"><link rel="shortcut icon" href="https://pic.youngwen.com/img/202204101536697.ico"><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//cdn.juyovo.com"/><meta name="baidu-site-verification" content="U5JoLKvJquPpAzvL"/><meta name="google-site-verification"/><link rel="canonical" href="https://www.youngwen.com/p/7828e038"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/font-awesome/6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script id="config-diff">var GLOBAL_CONFIG = {
+    root: '/',
+    isPost: true,
+    isHome: false,
+    isToc: true,
+    rgbaster: {"exclude":["rgb(255,255,255)","rgb(0,0,0)","rgb(254,254,254)"]},
+    title: 'Java 环境变量配置及 Tomcat 的安装',
+    localSearch: 'search.xml',
+    runTime: '2021-03-09T00:00:00.000Z',
+    islazyload: true,
+    highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+    isHighlightShrink: false,
+    Snackbar: {"day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+    lightbox: 'lightbox',
+    copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+    },
+    source: {
+        justifiedGallery: {
+            js: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.js',
+            css: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.css'
+        }
+    }
+}</script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div id="loader"><div id="shadow"></div><div id="box"></div></div></div><div class="hidden-md" id="mobile-header"><div class="nav-menu-head"><button id="close-mobile-menu"><i class="fa-regular fa-circle-dot"></i></button></div><nav id="nav-menus"><div class="menus"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav></div><div id="body-wrap"><header id="header"><div class="header-inner"><div class="visible-xs" id="navbar-toggle"><i class="fa-solid fa-align-left"></i></div><div id="site-name"><a href="/" title="温落阁">温落阁</a></div><nav id="nav-menus"><div class="menus f-left"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav><div class="r-menu"><div class="search-btn"><a href="javascript:void(0);" id="search-btn"><i class="fa-fw fas fa-search"></i></a></div><div class="moon-switch hidden-xs"><a href="javascript:void(0);" id="moon-switch"><i class="fa-fw fa-regular fa-moon"></i></a></div></div></div></header><div class="page-info post" style="background-image: url('https://pic.youngwen.com/img/202204102121719.jpg')"><div class="post-top-img"><img id="post-info-img" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204102121719.jpg"></div><div class="page-info-content container"><div class="post-meta-info"><div class="post-meta-categories"><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></div><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></div></div><div class="post-meta-tags hidden-xs"><a class="tag" href="/tags/Java/"># Java</a></div></div><h2 class="post-title">Java 环境变量配置及 Tomcat 的安装</h2><div class="post-meta-content"><div class="post-meta-word-count"><i class="fas fa-file-word fa-fw"></i><span class="word-count" title="字数大约">1.4k</span></div><div class="post-meta-date"><i class="fa-fw fas fa-calendar"></i><time title="发布时间:2022-4-13">2022-4-13</time></div><div class="post-meta-reading"><i class="fab fa-hotjar fa-fw"></i><span title="热度" id="busuanzi_value_page_pv"></span></div><div class="post-meta-commentcount"></div></div></div></div><div class="layout"><div class="content-inner container"><div class="row" id="main"><main class="col-md-9 col-xs-12"><div class="post-inner"><h2 id="Tomact-简介"><a href="#Tomact-简介" class="headerlink" title="Tomact 简介"></a>Tomact 简介</h2><p>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，是开发和调试JSP 程序的首选</p>
+<p>Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式</p>
+<p>简单来说就是在电脑上开启一个空间，用户可以访问里面的东西，主要用于jsp</p>
+<h2 id="配置-Java-环境变量"><a href="#配置-Java-环境变量" class="headerlink" title="配置 Java 环境变量"></a>配置 Java 环境变量</h2><p>JSP 是基于Java的，所以必然少不了 Java 的支持</p>
+<p>安装好JDK以后，找到jdk根目录，默认是C:\Program Files\Java\jdk1.8.0_291</p>
+<p>然后复制 jdk 的<strong>根路径</strong><br><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/20210518153006.png!copy" alt="img"></p>
+<h3 id="新建-JAVA-HOME"><a href="#新建-JAVA-HOME" class="headerlink" title="新建 JAVA_HOME"></a>新建 JAVA_HOME</h3><p>右键 <strong>此电脑</strong>-–<strong>属性</strong>-找到 <strong>高级系统设置</strong> - <strong>高级</strong> – <strong>环境变量</strong></p>
+<p>在 <strong>系统变量</strong> 里面点击新建</p>
+<p>变量名为：JAVA_HOME</p>
+<p>变量值为刚刚复制的 <strong>jdk跟路径</strong></p>
+<p>最后点击确定<br><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/20210518154513.png!copy" alt="img"></p>
+<h3 id="新建classpath"><a href="#新建classpath" class="headerlink" title="新建classpath"></a>新建classpath</h3><p>再次点击新建</p>
+<p>变量名为：classpath</p>
+<p>变量值为lib目录的路径</p>
+<p>比如：C:\Program Files\Java\jdk1.8.0_291\lib。</p>
+<p>如果还有jre也要把jre下的lib目录添加进去</p>
+<p>比如：C:\Program Files\Java\jre1.8.0_291\lib</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/20210518160141.png!copy" alt="img"></p>
+<p>⚠️注意前面加一个.;中间以英文状态下的分号;隔开。最后点击确定</p>
+<h3 id="添加Path环境变量"><a href="#添加Path环境变量" class="headerlink" title="添加Path环境变量"></a>添加Path环境变量</h3><p>复制jdk根目录下的bin目录的路径</p>
+<p>回到系统变量，这里不用再新建一个Path，默认已经有了，双击打开Path。点击新建，</p>
+<p>值为刚刚复制的bin目录的路径。最后点击确定就可以了。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/20210518160129.png!copy" alt="img"></p>
+<p>验证是否安装成功：打开控制台输入：java -version 出现版本号则安装成功</p>
+<h2 id="Tomact-安装"><a href="#Tomact-安装" class="headerlink" title="Tomact 安装"></a>Tomact 安装</h2><p>下载解压以后<br>这里简单说明一下几个必要的</p>
+<p><strong>启动 Tomact</strong>：双击 bin/下面的 <strong>startup.bat</strong>文件，会打开一个命令行窗口</p>
+<p><strong>关闭 Tomact</strong>：其实可以按两下 <code>Ctrl</code> + <code>C</code> 或者直接关闭窗口，又或者双击 shutdown.bat</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203011943998.png!copy" alt="img"></p>
+<p>运行成功：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203011943802.png!copy" alt="img"></p>
+<p><strong>端口问题</strong><br>默认启用的是80端口，一般如果你的电脑没有运行其他web服务可以不用更改，如果端口被其他服务占用</p>
+<p><strong>修改服务器端口</strong><br>打开conf/下的server.xml 找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">&quot;8000&quot;</span> <span class="attr">shutdown</span>=<span class="string">&quot;SHUTDOWN&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.catalina.startup.VersionLoggerListener&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Security listener. Documentation at /docs/config/listeners.html</span></span><br><span class="line"><span class="comment">  &lt;Listener className=&quot;org.apache.catalina.security.SecurityListener&quot; /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更改 <strong>port</strong> 为其他端口即可</p>
+<p><strong>项目存放目录</strong>： webapps/ROOT</p>
+<h2 id="软件："><a href="#软件：" class="headerlink" title="软件："></a>软件：</h2><p>JDK：<a target="_blank" rel="noopener" href="https://pan.juyovo.com/s/Lphk">https://pan.juyovo.com/s/Lphk</a><br>Tomact：<a target="_blank" rel="noopener" href="https://pan.juyovo.com/s/0jqUe">https://pan.juyovo.com/s/0jqUe</a></p>
+<div class="post-end"><span>-------- 本文已结束 </span><i class="fa-solid fa-feather"></i><span> 喜欢请分享 --------</span></div><div class="post-tools"><div class="share-link"><div class="share-copyurl jy-btn" title="复制链接" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-link"></i></div><div class="share-qrcode"><div class="qrcode-btn jy-btn"><i class="fa-fw fas fa-qrcode"></i><div class="qrcode-main"><div class="qrcode-box c-shadow"><div id="qrcode"></div><div class="text">当前页面二维码</div></div></div></div></div></div><div class="post-tags"><a class="cate" href="/tags/Java/"># Java</a></div></div><div class="post-copyright"><div class="post-copyright-title"><span>Java 环境变量配置及 Tomcat 的安装</span></div><div class="post-copyright-url"><a href="https://www.youngwen.com/p/7828e038.html">https://www.youngwen.com/p/7828e038.html</a><button class="post-copyright-copybtn" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-paste"></i></button></div><div class="post-copyright-notice"><span>文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可协议，转载请注明来自<a href="https://www.youngwen.com">WENXB</a></span></div></div><div id="pagination"><div class="post-pagination"><div class="prev-post"><a href="/p/5133366d.html"><i class="fa-solid fa-angle-left"></i> eclipse IDEA 汉化教程-官方完美汉化</a></div><div class="next-post"><a href="/p/4a0ab33a.html">Hexo本地测试自动刷新浏览器 <i class="fa-solid fa-angle-right"></i></a></div></div></div><div class="head-line"><span>相关推荐</span></div><div class="related-posts"><div class="related-posts-lists"><div class="related-posts-item"><a href="/p/37ae5d4d.html" title="Java期末复习（十万火急整理）"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204102110497.jpg" alt="cover"><div class="mask"></div><div class="title">Java期末复习（十万火急整理）</div></a></div></div></div><div class="head-line"><span>评论</span></div><div class="comment-inner"><div><div id="valine-comment"></div></div></div></div></main><aside class="col-md-3 hidden-xs" id="sidebar"><div class="side-sticky"><div class="side-widget-posttoc side-widget"><div class="side-headline"><i class="fa-solid fa-bars-staggered"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomact-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Tomact 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Java-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">配置 Java 环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA-JAVA-HOME"><span class="toc-number">2.1.</span> <span class="toc-text">新建 JAVA_HOME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BAclasspath"><span class="toc-number">2.2.</span> <span class="toc-text">新建classpath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Path%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.3.</span> <span class="toc-text">添加Path环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomact-%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">Tomact 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">软件：</span></a></li></ol></div></div><div class="side-widget-categories side-widget"><div class="side-headline"><i class="fa-solid fa-box-open"></i><span> 分类</span></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">日志记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E8%A8%80%E6%9D%82%E8%AF%AD/">闲言杂语</a></li></ul></div><div class="side-widget-tags side-widget"><div class="side-headline"><i class="fa-solid fa-tag"></i><span> 标签</span></div><div class="side-tag-lists"><a href="/tags/AndroidStudio/" style="font-size: 0.72rem; color: #f0524f">AndroidStudio</a> <a href="/tags/HTML/" style="font-size: 0.72rem; color: #589df6">HTML</a> <a href="/tags/IDEA/" style="font-size: 0.72rem; color: #f0524f">IDEA</a> <a href="/tags/Java/" style="font-size: 0.72rem; color: #589df6">Java</a> <a href="/tags/MySQL/" style="font-size: 0.72rem; color: #f0524f">MySQL</a> <a href="/tags/QQ/" style="font-size: 0.72rem; color: #f0524f">QQ</a> <a href="/tags/Tampermonkey/" style="font-size: 0.72rem; color: #f0524f">Tampermonkey</a> <a href="/tags/WordPress/" style="font-size: 0.72rem; color: #f0524f">WordPress</a> <a href="/tags/centos/" style="font-size: 0.72rem; color: #f0524f">centos</a> <a href="/tags/eclipse/" style="font-size: 0.72rem; color: #f0524f">eclipse</a> <a href="/tags/hexo/" style="font-size: 0.72rem; color: #589df6">hexo</a> <a href="/tags/hide/" style="font-size: 0.72rem; color: #f0524f">hide</a> <a href="/tags/windows10/" style="font-size: 0.72rem; color: #f0524f">windows10</a> <a href="/tags/%E5%B0%8F%E7%B1%B3/" style="font-size: 0.72rem; color: #f0524f">小米</a> <a href="/tags/%E6%80%9D%E7%A7%91/" style="font-size: 0.72rem; color: #f0524f">思科</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 0.72rem; color: #f0524f">技巧</a> <a href="/tags/%E6%98%9F%E5%BA%A7/" style="font-size: 0.72rem; color: #f0524f">星座</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">百度网盘</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">网盘</a></div></div><div class="side-widget-count side-widget"><div class="side-headline"><i class="fas fa-chart-line"></i><span>网站统计</span></div><ul class="side-site-count"><li class="site-count"><div class="title">文章总数 :</div><div class="count">22</div></li><li class="site-count"><div class="title">已运行天数 :</div><div class="count" id="site-runtime-day"></div></li><li class="site-count"><div class="title">总字数 :</div><div class="count">38k</div></li><li class="site-count"><div class="title">总访客 :</div><div class="count" id="busuanzi_value_site_uv"></div></li><li class="site-count"><div class="title">总访问量 :</div><div class="count" id="busuanzi_value_site_pv"></div></li></ul></div></div></aside></div></div><footer id="footer"><div class="footer-inner"><a target="_blank" rel="noopener" href="https://hexo.io">Hexo </a><i class="fa-solid fa-heart"></i><a target="_blank" rel="noopener" href="https://hexo.juyovo.com"> Juyo</a><br><div class="one"><a target="_blank" rel="noopener" href="//beian.miit.gov.cn/">黔ICP备2022001175号</a></div><div class="two"></div><div class="three"></div><div class="site-runtime">已经度过了 <div id="site-runtime"></div></div></div></footer></div></div><div id="right-side"><div class="right-back-top"><button class="jy-btn" id="go-top"><i class="fa-solid fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-inner"><div class="local-search-input"><div class="local-search-content"><input id="search-input" autofocus="autofocus" autocapitalize="off" autocomplete="off" placeholder="输入关键词搜索..." type="text"/><button class="search-close-btn fa-solid fa-xmark"></button></div></div><div class="search-headline"><span>本地搜索</span></div><div id="local-search-results"></div><div class="local-search-loding" style="text-align:center"><i class="fas fa-spinner fa-pulse"></i><span>  加载中...</span></div></div><div id="search-mask"></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.juyovo.com/libs/medium-zoom/medium-zoom.min.js"></script><script>var preloader = {
+    endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("pre-loaded")
+    },
+    initLoading: () => {
+        document.body.style.overflow = 'hidden';
+        document.getElementById('loading-box').classList.remove("pre-loaded")
+
+    }
+}
+window.addEventListener('load',preloader.endLoading())</script><script src="https://cdn.juyovo.com/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><script>function panguFn () {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+        getScript('https://cdn.juyovo.com/libs/pangu/4.0.7/pangu.min.js')
+            .then(() => {
+                pangu.autoSpacingPage()
+            })
+    }
+}</script><script>function qrcodeFn(){
+    if (document.getElementById('qrcode')) {
+        getScript('https://cdn.juyovo.com/libs/qrcodejs/1.0.0/qrcode.min.js')
+            .then(() => {
+                var href = window.location.href
+                if(window.location.search){
+                    var root_url = href.split("?")[0]
+                }else{
+                    root_url = href
+                }
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: root_url,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000",
+                    colorLight: "#fff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            })
+
+    }
+}
+window.addEventListener('pjax:complete',qrcodeFn)</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async data-pjax></script><div class="js-pjax"><script>(() => {
+    const $mermaidWrap = document.querySelectorAll('.post-inner .mermaid-wrap')
+    if ($mermaidWrap.length) {
+        window.runMermaid = () => {
+            window.loadMermaid = true
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+            Array.from($mermaidWrap).forEach((item, index) => {
+                const mermaidSrc = item.firstElementChild
+                const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+                const mermaidID = 'mermaid-' + index
+                const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+                mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+                    mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+                })
+            })
+        }
+
+        const loadMermaid = () => {
+            window.loadMermaid ? runMermaid() : getScript('https://cdn.juyovo.com/libs/mermaid/mermaid.min.js').then(runMermaid)
+        }
+
+        window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    }
+})()</script><script>(() => {
+    const $post_img = document.getElementById('post-info-img');
+    if ($post_img) {
+        window.runRgbster = () => {
+            const exclude = GLOBAL_CONFIG.rgbaster.exclude;
+            const img = $post_img.src || $post_img.getAttribute('data-lazy-src')
+            RGBaster.colors(img, {
+                exclude: exclude, success: function (payload) {
+                    document.body.style.setProperty('--post-info-color', payload.dominant);
+                }
+            })
+        }
+        const loadRgbster = () => {
+            getScript('https://cdn.juyovo.com/libs/rgbaster/2/rgbaster.min.js').then(runRgbster)
+        }
+        window.pjax ? loadRgbster() : document.addEventListener('DOMContentLoaded', loadRgbster)
+    } else {
+        document.body.style.setProperty('--post-info-color', '');
+    }
+})()</script><script>function loadValine () {
+    function initValine () {
+        new Valine(Object.assign({
+            el: '#valine-comment',
+            appId: 'Bm6HXIExfKsMvbSCz7cXgkRR-gzGzoHsz',
+            appKey: 'BtsnRH1lSMDN1axm5Cj02oIz',
+            avatar: 'mp',
+            serverURLs: '',
+            path: window.location.pathname,
+            visitor: true
+        }, null))
+    }
+
+    if (typeof Valine === 'function') initValine()
+    else getScript('https://cdn.juyovo.com/libs/valine/1.4.18/Valine.min.js').then(initValine)
+}
+
+if ('valine' === 'valine'){
+    loadValine()
+}</script></div><link rel="stylesheet" href="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.juyovo.com/libs/metingjs/1.2.0/Meting-wipe.min.js"></script><script src="https://cdn.juyovo.com/libs/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#right-side",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguFn === 'function' && panguFn()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>document.addEventListener('DOMContentLoaded', function () {
+    qrcodeFn();
+    panguFn();
+})</script></div>

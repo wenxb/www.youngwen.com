@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>MySQL补考复习 - 温落阁</title><meta name="author" content="WENXB"><meta name="description" content="事务的四大特征： 一致性 持久性 原子性、隔离性  右外连接查询的是满足条件的数据以及右表所有数据  回滚事务关键字 rollback  创建触发器关键字 create trigger ……  delete触发器 的关键字 old 的作用是将要或者已经删除的数据  以下哪个隔离级别是mysql数据库的默认隔离级别 repeatable read  数据库的特征: 持久化存储数据的。其实数据库就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL补考复习">
+<meta property="og:url" content="https://www.youngwen.com/p/4dca92c5.html">
+<meta property="og:site_name" content="温落阁">
+<meta property="og:description" content="事务的四大特征： 一致性 持久性 原子性、隔离性  右外连接查询的是满足条件的数据以及右表所有数据  回滚事务关键字 rollback  创建触发器关键字 create trigger ……  delete触发器 的关键字 old 的作用是将要或者已经删除的数据  以下哪个隔离级别是mysql数据库的默认隔离级别 repeatable read  数据库的特征: 持久化存储数据的。其实数据库就是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.youngwen.com/img/202204102124630.jpg">
+<meta property="article:published_time" content="2022-04-09T12:10:41.000Z">
+<meta property="article:modified_time" content="2022-04-10T13:24:37.389Z">
+<meta property="article:author" content="WENXB">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.youngwen.com/img/202204102124630.jpg"><link rel="shortcut icon" href="https://pic.youngwen.com/img/202204101536697.ico"><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//cdn.juyovo.com"/><meta name="baidu-site-verification" content="U5JoLKvJquPpAzvL"/><meta name="google-site-verification"/><link rel="canonical" href="https://www.youngwen.com/p/4dca92c5"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/font-awesome/6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script id="config-diff">var GLOBAL_CONFIG = {
+    root: '/',
+    isPost: true,
+    isHome: false,
+    isToc: false,
+    rgbaster: {"exclude":["rgb(255,255,255)","rgb(0,0,0)","rgb(254,254,254)"]},
+    title: 'MySQL补考复习',
+    localSearch: 'search.xml',
+    runTime: '2021-03-09T00:00:00.000Z',
+    islazyload: true,
+    highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+    isHighlightShrink: false,
+    Snackbar: {"day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+    lightbox: 'lightbox',
+    copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+    },
+    source: {
+        justifiedGallery: {
+            js: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.js',
+            css: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.css'
+        }
+    }
+}</script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div id="loader"><div id="shadow"></div><div id="box"></div></div></div><div class="hidden-md" id="mobile-header"><div class="nav-menu-head"><button id="close-mobile-menu"><i class="fa-regular fa-circle-dot"></i></button></div><nav id="nav-menus"><div class="menus"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav></div><div id="body-wrap"><header id="header"><div class="header-inner"><div class="visible-xs" id="navbar-toggle"><i class="fa-solid fa-align-left"></i></div><div id="site-name"><a href="/" title="温落阁">温落阁</a></div><nav id="nav-menus"><div class="menus f-left"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav><div class="r-menu"><div class="search-btn"><a href="javascript:void(0);" id="search-btn"><i class="fa-fw fas fa-search"></i></a></div><div class="moon-switch hidden-xs"><a href="javascript:void(0);" id="moon-switch"><i class="fa-fw fa-regular fa-moon"></i></a></div></div></div></header><div class="page-info post" style="background-image: url('https://pic.youngwen.com/img/202204102124630.jpg')"><div class="post-top-img"><img id="post-info-img" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204102124630.jpg"></div><div class="page-info-content container"><div class="post-meta-info"><div class="post-meta-categories"><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div></div><div class="post-meta-tags hidden-xs"><a class="tag" href="/tags/MySQL/"># MySQL</a></div></div><h2 class="post-title">MySQL补考复习</h2><div class="post-meta-content"><div class="post-meta-word-count"><i class="fas fa-file-word fa-fw"></i><span class="word-count" title="字数大约">2.9k</span></div><div class="post-meta-date"><i class="fa-fw fas fa-calendar"></i><time title="发布时间:2022-4-13">2022-4-13</time></div><div class="post-meta-reading"><i class="fab fa-hotjar fa-fw"></i><span title="热度" id="busuanzi_value_page_pv"></span></div><div class="post-meta-commentcount"></div></div></div></div><div class="layout"><div class="content-inner container"><div class="row" id="main"><main class="col-md-9 col-xs-12"><div class="post-inner"><ul>
+<li><p>事务的四大特征：</p>
+<p><code>一致性</code> <code>持久性</code> 原子性、隔离性</p>
+</li>
+<li><p>右外连接查询的是满足条件的数据以及右表所有数据</p>
+</li>
+<li><p>回滚事务关键字 <code>rollback</code></p>
+</li>
+<li><p>创建触发器关键字 <code>create trigger ……</code></p>
+</li>
+<li><p>delete触发器 的关键字 old 的作用是<code>将要或者已经删除的数据</code></p>
+</li>
+<li><p>以下哪个隔离级别是mysql数据库的默认隔离级别 <code>repeatable</code> <code>read</code></p>
+</li>
+<li><p><strong>数据库的特征:</strong></p>
+<p>持久化存储数据的。其实数据库就是一个文件系统</p>
+<p>方便存储和管理数据</p>
+<p>使用了统一的方式操作数据库 – SQL</p>
+</li>
+<li><p><strong>数据表的约束有哪些？</strong></p>
+<p>非空：not null</p>
+<p>唯一：unique</p>
+<p>主键：primary key</p>
+<p>外键：foreign key</p>
+</li>
+<li><p><strong>SQL语句中（添加数据、更改数据、查看数据、删除数据）的语法？</strong><br>添加：<code>insert into</code> 表名(列名1,列名2,…列名n) <code>values</code>(值1,值2,…值n);</p>
+<p>删除：<code>delete from</code> 表名 [where 条件]</p>
+<p>更新：<code>update</code> 表名 <code>set</code> 列名1 = 值1, 列名2 = 值2,… [where 条件];</p>
+<p>查看：<code>select</code> 字段名1，字段名2… <code>from</code> 表名 [where 条件] ……；</p>
+</li>
+<li><p>视图（View）是一种虚拟表存在的表</p>
+<p>简单、安全、数据独立</p>
+</li>
+</ul>
+<hr>
+<p><strong>现有一张教师表：teacher（id,name,sex）<br>其中：id代表序号（主键约束）、name代表老师姓名（非空约束）、sex代表老师性别</strong></p>
+<p>问题1：合理分析并且编码创建出正确的教师表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher(</span><br><span class="line">id <span class="type">int</span> <span class="keyword">primary</span> key,</span><br><span class="line">name <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">sex <span class="type">char</span>(<span class="number">5</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>问题2：根据约束给表插入3条正确的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Insert into teacher(id,name,sex) values(1,’马云’，’男’)，(1,’马化腾’，’女’)；</span><br></pre></td></tr></table></figure>
+<p>现有一个学生表（student）信息显示如下：<br><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203212059529.png" alt="img"><br>问题一：查询年龄22岁，18岁，25岁的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select * from student where age in (22,18,25);</span><br></pre></td></tr></table></figure>
+<p>问题2：查询姓名第二个字是化的人？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Select * from student name like ‘_化%’;</span><br></pre></td></tr></table></figure>
+<p>现有一个员工表（emp）和 一个 部门表（dept）信息显示如下：<br>员工表</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203212100112.png" alt="img"></p>
+<p>部门表</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203212100063.png" alt="img"></p>
+<p>问题一：查询所有员工信息和对应的部门信息？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM emp,dept WHERE emp.dept_id`= dept.id;</span><br></pre></td></tr></table></figure>
+<p>问题二：查询工资最高的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max(salary) from emp;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    age <span class="type">int</span>,</span><br><span class="line">    sex <span class="type">char</span>(<span class="number">5</span>),</span><br><span class="line">    address <span class="type">varchar</span>(<span class="number">100</span>),</span><br><span class="line">    math <span class="keyword">double</span>(<span class="number">5</span>,<span class="number">2</span>),</span><br><span class="line">    hire_date <span class="type">date</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> stu(id,name,age,sex,address,math,hire_date) </span><br><span class="line"><span class="keyword">values</span> </span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;马云&#x27;</span>,<span class="number">55</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;杭州&#x27;</span>,<span class="number">66</span>,<span class="string">&#x27;1999-8-10&#x27;</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;马化腾&#x27;</span>,<span class="number">52</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;北京&#x27;</span>,<span class="number">63</span>,<span class="string">&#x27;1997-11-10&#x27;</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;刘德华&#x27;</span>,<span class="number">25</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;杭州&#x27;</span>,<span class="number">67</span>,<span class="string">&#x27;1999-6-10&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> name,age <span class="keyword">from</span> stu;</span><br><span class="line"><span class="comment">-- 去除重复关键字 distinct</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> address <span class="keyword">as</span> 地址 <span class="keyword">from</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 条件查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="operator">&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="operator">&gt;</span> <span class="number">25</span> <span class="keyword">and</span> age <span class="operator">&lt;</span> <span class="number">53</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">53</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> hire_date <span class="keyword">between</span> <span class="string">&#x27;1997-11-9&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;1999-06-11&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="operator">=</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="operator">&lt;&gt;</span> <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="operator">=</span> <span class="number">25</span> <span class="keyword">or</span> age <span class="operator">=</span> <span class="number">52</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="keyword">in</span> (<span class="number">25</span>,<span class="number">52</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> age <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">-- 模糊查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;马%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%化%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%马%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 排序查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">order</span> <span class="keyword">by</span> age <span class="keyword">asc</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">order</span> <span class="keyword">by</span> math <span class="keyword">desc</span> , id <span class="keyword">asc</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 分组查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(id) <span class="keyword">from</span> stu;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(math) <span class="keyword">from</span> stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sex, <span class="built_in">avg</span>(math),<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> stu <span class="keyword">group</span> <span class="keyword">by</span> sex;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sex, <span class="built_in">avg</span>(math),<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> stu <span class="keyword">where</span> math <span class="operator">&gt;=</span> <span class="number">66</span> <span class="keyword">group</span> <span class="keyword">by</span> sex;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sex, <span class="built_in">avg</span>(math),<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> stu <span class="keyword">where</span> math <span class="operator">&gt;=</span> <span class="number">66</span> <span class="keyword">group</span> <span class="keyword">by</span> sex <span class="keyword">having</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">&gt;</span><span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 分页查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu limit <span class="number">0</span>,<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu limit <span class="number">1</span>,<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu limit <span class="number">0</span>,<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<div class="post-end"><span>-------- 本文已结束 </span><i class="fa-solid fa-feather"></i><span> 喜欢请分享 --------</span></div><div class="post-tools"><div class="share-link"><div class="share-copyurl jy-btn" title="复制链接" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-link"></i></div><div class="share-qrcode"><div class="qrcode-btn jy-btn"><i class="fa-fw fas fa-qrcode"></i><div class="qrcode-main"><div class="qrcode-box c-shadow"><div id="qrcode"></div><div class="text">当前页面二维码</div></div></div></div></div></div><div class="post-tags"><a class="cate" href="/tags/MySQL/"># MySQL</a></div></div><div class="post-copyright"><div class="post-copyright-title"><span>MySQL补考复习</span></div><div class="post-copyright-url"><a href="https://www.youngwen.com/p/4dca92c5.html">https://www.youngwen.com/p/4dca92c5.html</a><button class="post-copyright-copybtn" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-paste"></i></button></div><div class="post-copyright-notice"><span>文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可协议，转载请注明来自<a href="https://www.youngwen.com">WENXB</a></span></div></div><div id="pagination"><div class="post-pagination"><div class="prev-post"><a href="/p/5dc68ba4.html"><i class="fa-solid fa-angle-left"></i> 思科网络技术教程笔记</a></div><div class="next-post"><a href="/p/37ae5d4d.html">Java期末复习（十万火急整理） <i class="fa-solid fa-angle-right"></i></a></div></div></div><div class="head-line"><span>评论</span></div><div class="comment-inner"><div><div id="valine-comment"></div></div></div></div></main><aside class="col-md-3 hidden-xs" id="sidebar"><div class="side-sticky"><div class="side-widget-categories side-widget"><div class="side-headline"><i class="fa-solid fa-box-open"></i><span> 分类</span></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">日志记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E8%A8%80%E6%9D%82%E8%AF%AD/">闲言杂语</a></li></ul></div><div class="side-widget-tags side-widget"><div class="side-headline"><i class="fa-solid fa-tag"></i><span> 标签</span></div><div class="side-tag-lists"><a href="/tags/AndroidStudio/" style="font-size: 0.72rem; color: #f0524f">AndroidStudio</a> <a href="/tags/HTML/" style="font-size: 0.72rem; color: #589df6">HTML</a> <a href="/tags/IDEA/" style="font-size: 0.72rem; color: #f0524f">IDEA</a> <a href="/tags/Java/" style="font-size: 0.72rem; color: #589df6">Java</a> <a href="/tags/MySQL/" style="font-size: 0.72rem; color: #f0524f">MySQL</a> <a href="/tags/QQ/" style="font-size: 0.72rem; color: #f0524f">QQ</a> <a href="/tags/Tampermonkey/" style="font-size: 0.72rem; color: #f0524f">Tampermonkey</a> <a href="/tags/WordPress/" style="font-size: 0.72rem; color: #f0524f">WordPress</a> <a href="/tags/centos/" style="font-size: 0.72rem; color: #f0524f">centos</a> <a href="/tags/eclipse/" style="font-size: 0.72rem; color: #f0524f">eclipse</a> <a href="/tags/hexo/" style="font-size: 0.72rem; color: #589df6">hexo</a> <a href="/tags/hide/" style="font-size: 0.72rem; color: #f0524f">hide</a> <a href="/tags/windows10/" style="font-size: 0.72rem; color: #f0524f">windows10</a> <a href="/tags/%E5%B0%8F%E7%B1%B3/" style="font-size: 0.72rem; color: #f0524f">小米</a> <a href="/tags/%E6%80%9D%E7%A7%91/" style="font-size: 0.72rem; color: #f0524f">思科</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 0.72rem; color: #f0524f">技巧</a> <a href="/tags/%E6%98%9F%E5%BA%A7/" style="font-size: 0.72rem; color: #f0524f">星座</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">百度网盘</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">网盘</a></div></div><div class="side-widget-count side-widget"><div class="side-headline"><i class="fas fa-chart-line"></i><span>网站统计</span></div><ul class="side-site-count"><li class="site-count"><div class="title">文章总数 :</div><div class="count">22</div></li><li class="site-count"><div class="title">已运行天数 :</div><div class="count" id="site-runtime-day"></div></li><li class="site-count"><div class="title">总字数 :</div><div class="count">38k</div></li><li class="site-count"><div class="title">总访客 :</div><div class="count" id="busuanzi_value_site_uv"></div></li><li class="site-count"><div class="title">总访问量 :</div><div class="count" id="busuanzi_value_site_pv"></div></li></ul></div></div></aside></div></div><footer id="footer"><div class="footer-inner"><a target="_blank" rel="noopener" href="https://hexo.io">Hexo </a><i class="fa-solid fa-heart"></i><a target="_blank" rel="noopener" href="https://hexo.juyovo.com"> Juyo</a><br><div class="one"><a target="_blank" rel="noopener" href="//beian.miit.gov.cn/">黔ICP备2022001175号</a></div><div class="two"></div><div class="three"></div><div class="site-runtime">已经度过了 <div id="site-runtime"></div></div></div></footer></div></div><div id="right-side"><div class="right-back-top"><button class="jy-btn" id="go-top"><i class="fa-solid fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-inner"><div class="local-search-input"><div class="local-search-content"><input id="search-input" autofocus="autofocus" autocapitalize="off" autocomplete="off" placeholder="输入关键词搜索..." type="text"/><button class="search-close-btn fa-solid fa-xmark"></button></div></div><div class="search-headline"><span>本地搜索</span></div><div id="local-search-results"></div><div class="local-search-loding" style="text-align:center"><i class="fas fa-spinner fa-pulse"></i><span>  加载中...</span></div></div><div id="search-mask"></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.juyovo.com/libs/medium-zoom/medium-zoom.min.js"></script><script>var preloader = {
+    endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("pre-loaded")
+    },
+    initLoading: () => {
+        document.body.style.overflow = 'hidden';
+        document.getElementById('loading-box').classList.remove("pre-loaded")
+
+    }
+}
+window.addEventListener('load',preloader.endLoading())</script><script src="https://cdn.juyovo.com/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><script>function panguFn () {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+        getScript('https://cdn.juyovo.com/libs/pangu/4.0.7/pangu.min.js')
+            .then(() => {
+                pangu.autoSpacingPage()
+            })
+    }
+}</script><script>function qrcodeFn(){
+    if (document.getElementById('qrcode')) {
+        getScript('https://cdn.juyovo.com/libs/qrcodejs/1.0.0/qrcode.min.js')
+            .then(() => {
+                var href = window.location.href
+                if(window.location.search){
+                    var root_url = href.split("?")[0]
+                }else{
+                    root_url = href
+                }
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: root_url,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000",
+                    colorLight: "#fff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            })
+
+    }
+}
+window.addEventListener('pjax:complete',qrcodeFn)</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async data-pjax></script><div class="js-pjax"><script>(() => {
+    const $mermaidWrap = document.querySelectorAll('.post-inner .mermaid-wrap')
+    if ($mermaidWrap.length) {
+        window.runMermaid = () => {
+            window.loadMermaid = true
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+            Array.from($mermaidWrap).forEach((item, index) => {
+                const mermaidSrc = item.firstElementChild
+                const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+                const mermaidID = 'mermaid-' + index
+                const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+                mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+                    mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+                })
+            })
+        }
+
+        const loadMermaid = () => {
+            window.loadMermaid ? runMermaid() : getScript('https://cdn.juyovo.com/libs/mermaid/mermaid.min.js').then(runMermaid)
+        }
+
+        window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    }
+})()</script><script>(() => {
+    const $post_img = document.getElementById('post-info-img');
+    if ($post_img) {
+        window.runRgbster = () => {
+            const exclude = GLOBAL_CONFIG.rgbaster.exclude;
+            const img = $post_img.src || $post_img.getAttribute('data-lazy-src')
+            RGBaster.colors(img, {
+                exclude: exclude, success: function (payload) {
+                    document.body.style.setProperty('--post-info-color', payload.dominant);
+                }
+            })
+        }
+        const loadRgbster = () => {
+            getScript('https://cdn.juyovo.com/libs/rgbaster/2/rgbaster.min.js').then(runRgbster)
+        }
+        window.pjax ? loadRgbster() : document.addEventListener('DOMContentLoaded', loadRgbster)
+    } else {
+        document.body.style.setProperty('--post-info-color', '');
+    }
+})()</script><script>function loadValine () {
+    function initValine () {
+        new Valine(Object.assign({
+            el: '#valine-comment',
+            appId: 'Bm6HXIExfKsMvbSCz7cXgkRR-gzGzoHsz',
+            appKey: 'BtsnRH1lSMDN1axm5Cj02oIz',
+            avatar: 'mp',
+            serverURLs: '',
+            path: window.location.pathname,
+            visitor: true
+        }, null))
+    }
+
+    if (typeof Valine === 'function') initValine()
+    else getScript('https://cdn.juyovo.com/libs/valine/1.4.18/Valine.min.js').then(initValine)
+}
+
+if ('valine' === 'valine'){
+    loadValine()
+}</script></div><link rel="stylesheet" href="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.juyovo.com/libs/metingjs/1.2.0/Meting-wipe.min.js"></script><script src="https://cdn.juyovo.com/libs/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#right-side",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguFn === 'function' && panguFn()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>document.addEventListener('DOMContentLoaded', function () {
+    qrcodeFn();
+    panguFn();
+})</script></div>

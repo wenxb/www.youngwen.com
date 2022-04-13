@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>思科网络技术教程笔记 - 温落阁</title><meta name="author" content="WENXB"><meta name="description" content="路由 如果对 vlan、三层交换机、网关、DNS、子网掩码、MAC地址 不清楚的同学，推荐阅读这篇文章一文讲懂什么是 vlan、三层交换机、网关、DNS、子网掩码、MAC地址  路由的概念：以太网交换机在数据链路层（第二层）运行，用于用于在同一网络中的设备之间转发以太网帧。 但是，当源 IP 地址位于不同网络时，必须将以太网帧发送到路由器。路由器的作用就是将各个网络彼此连接起来。路由器负责不通网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="思科网络技术教程笔记">
+<meta property="og:url" content="https://www.youngwen.com/p/5dc68ba4.html">
+<meta property="og:site_name" content="温落阁">
+<meta property="og:description" content="路由 如果对 vlan、三层交换机、网关、DNS、子网掩码、MAC地址 不清楚的同学，推荐阅读这篇文章一文讲懂什么是 vlan、三层交换机、网关、DNS、子网掩码、MAC地址  路由的概念：以太网交换机在数据链路层（第二层）运行，用于用于在同一网络中的设备之间转发以太网帧。 但是，当源 IP 地址位于不同网络时，必须将以太网帧发送到路由器。路由器的作用就是将各个网络彼此连接起来。路由器负责不通网络">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.youngwen.com/img/202203152157368.webp">
+<meta property="article:published_time" content="2022-04-09T12:17:51.000Z">
+<meta property="article:modified_time" content="2022-04-10T13:13:21.530Z">
+<meta property="article:author" content="WENXB">
+<meta property="article:tag" content="思科">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.youngwen.com/img/202203152157368.webp"><link rel="shortcut icon" href="https://pic.youngwen.com/img/202204101536697.ico"><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//cdn.juyovo.com"/><meta name="baidu-site-verification" content="U5JoLKvJquPpAzvL"/><meta name="google-site-verification"/><link rel="canonical" href="https://www.youngwen.com/p/5dc68ba4"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/font-awesome/6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script id="config-diff">var GLOBAL_CONFIG = {
+    root: '/',
+    isPost: true,
+    isHome: false,
+    isToc: true,
+    rgbaster: {"exclude":["rgb(255,255,255)","rgb(0,0,0)","rgb(254,254,254)"]},
+    title: '思科网络技术教程笔记',
+    localSearch: 'search.xml',
+    runTime: '2021-03-09T00:00:00.000Z',
+    islazyload: true,
+    highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+    isHighlightShrink: false,
+    Snackbar: {"day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+    lightbox: 'lightbox',
+    copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+    },
+    source: {
+        justifiedGallery: {
+            js: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.js',
+            css: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.css'
+        }
+    }
+}</script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div id="loader"><div id="shadow"></div><div id="box"></div></div></div><div class="hidden-md" id="mobile-header"><div class="nav-menu-head"><button id="close-mobile-menu"><i class="fa-regular fa-circle-dot"></i></button></div><nav id="nav-menus"><div class="menus"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav></div><div id="body-wrap"><header id="header"><div class="header-inner"><div class="visible-xs" id="navbar-toggle"><i class="fa-solid fa-align-left"></i></div><div id="site-name"><a href="/" title="温落阁">温落阁</a></div><nav id="nav-menus"><div class="menus f-left"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav><div class="r-menu"><div class="search-btn"><a href="javascript:void(0);" id="search-btn"><i class="fa-fw fas fa-search"></i></a></div><div class="moon-switch hidden-xs"><a href="javascript:void(0);" id="moon-switch"><i class="fa-fw fa-regular fa-moon"></i></a></div></div></div></header><div class="page-info post" style="background-image: url('https://pic.youngwen.com/img/202203152157368.webp')"><div class="post-top-img"><img id="post-info-img" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202203152157368.webp"></div><div class="page-info-content container"><div class="post-meta-info"><div class="post-meta-categories"><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div></div><div class="post-meta-tags hidden-xs"><a class="tag" href="/tags/%E6%80%9D%E7%A7%91/"># 思科</a></div></div><h2 class="post-title">思科网络技术教程笔记</h2><div class="post-meta-content"><div class="post-meta-word-count"><i class="fas fa-file-word fa-fw"></i><span class="word-count" title="字数大约">2.7k</span></div><div class="post-meta-date"><i class="fa-fw fas fa-calendar"></i><time title="发布时间:2022-4-13">2022-4-13</time></div><div class="post-meta-reading"><i class="fab fa-hotjar fa-fw"></i><span title="热度" id="busuanzi_value_page_pv"></span></div><div class="post-meta-commentcount"></div></div></div></div><div class="layout"><div class="content-inner container"><div class="row" id="main"><main class="col-md-9 col-xs-12"><div class="post-inner"><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><blockquote>
+<p>如果对 vlan、三层交换机、网关、DNS、子网掩码、MAC地址 不清楚的同学，推荐阅读这篇文章<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/189590696">一文讲懂什么是 vlan、三层交换机、网关、DNS、子网掩码、MAC地址</a></p>
+</blockquote>
+<p><strong>路由的概念</strong>：以太网交换机在数据链路层（第二层）运行，用于用于在同一网络中的设备之间<strong>转发以太网帧</strong>。</p>
+<p>但是，当源 <strong>IP</strong> 地址位于不同网络时，必须将以太网帧发送到路由器。<br><strong>路由器的作用就是将各个网络彼此连接起来。路由器负责不通网络之间的数据包传送。</strong></p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h4 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h4><p>用户模式： enable　——&gt;　　特权模式：　　conf         ——&gt;　　全局控制模式</p>
+<p>全局控制模式： 　<code>end</code>、<code>exit</code>　——&gt;　特权模式：　<code>disable</code>、<code>exit</code> ——&gt;　　用户模式</p>
+<h4 id="配置主机名"><a href="#配置主机名" class="headerlink" title="配置主机名"></a>配置主机名</h4><p>在全局模式下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hostname S1</span></span><br></pre></td></tr></table></figure>
+<h4 id="保护设备"><a href="#保护设备" class="headerlink" title="保护设备"></a>保护设备</h4><blockquote>
+<p>所有密码都在全局控制模式下所设置</p>
+</blockquote>
+<ol>
+<li>特权EXEC的密码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># enable secret abc</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>用户EXEC的密码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># line console 0</span></span><br><span class="line"><span class="comment"># password abc</span></span><br><span class="line"><span class="comment"># login</span></span><br><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>VTY线路的密码（VTY指虚拟终端 SSH\Telnet）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># line vty 0 15</span></span><br><span class="line"><span class="comment"># password abc</span></span><br><span class="line"><span class="comment"># login</span></span><br><span class="line"><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>加密明文密码</li>
+</ol>
+<blockquote>
+<p>刚刚设置的密码大多都是以明文的形式保存在配置文件，任何人如果访问了这些文件，就可以看到这些密码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service password-encryption</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>标语消息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># banner motd &#x27;warning&#x27;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>保存配置文件<br>如何查看运行配置文件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show running-config</span></span><br></pre></td></tr></table></figure>
+<p>如何查看启动配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show startup-config</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于所做的配置只是暂存在内存中，重启后配置容易丢失，所以使用<br><code>copy running-config startup-config</code> 来保存到启动配置文件中</p>
+</blockquote>
+<h4 id="配置IP地址"><a href="#配置IP地址" class="headerlink" title="配置IP地址"></a>配置IP地址</h4><blockquote>
+<p>开始之前你需要了解：<br>每一台设备的IP地址都是<code>唯一</code>的<br>IP地址可以手动分配或者由DHCP自动分配</p>
+</blockquote>
+<p>一般PC电脑默认都是自动分配<br>Windows可以在设置-网络和Internet-状态-属性看到相关信息</p>
+<p>不过思科作业基本都是手动分配，下面说说手动分配IP地址<br>为交换机配置 vlan 的 ip 地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># interface vlan 1</span></span><br><span class="line"><span class="comment"># ip address 10.10.10.1 255.255.255.0</span></span><br><span class="line"><span class="comment"># no shutdown</span></span><br></pre></td></tr></table></figure>
+<p>一定不要忘记最后 no shutdown 启动一下噢</p>
+<h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><h4 id="安全远程访问"><a href="#安全远程访问" class="headerlink" title="安全远程访问"></a>安全远程访问</h4><blockquote>
+<p>安全外壳（SSH）是一种提供远程设备的安全管理连接的协议。SSH应替代 Telnet 来管理连接。Telnet是一种较早的协议，使用的是不安全的明文传输。</p>
+</blockquote>
+<p><strong>一 配置SSH</strong></p>
+<ol>
+<li>验证是否支持SSH<br><code>show ip ssh</code> 验证</li>
+<li>配置IP域<br> <code>ip domain-name youngwen.com</code></li>
+<li>启用SSH 2</li>
+</ol>
+<blockquote>
+<p>ssh1 存在安全，建议使用ssh2</p>
+</blockquote>
+<p><code>ip ssh version2</code> 启用SSH V2</p>
+<ol>
+<li>生成 RSA 密钥对并启用</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># crypto key generate rsa</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：How many bits in the modulus [512]: <code>1024</code><br>这里是模拟长度，默认是512位，但是推荐较长的（如 1024 位或 2048 位）<br>删除RSA密钥对使用 <code>crypto key zeroize rsa</code></p>
+</blockquote>
+<ol>
+<li>用户身份验证<br><code>username wenxb secret 123456</code></li>
+<li>配置 vty 线路<br>使用 <code>transport input ssh</code> 线路启用 vty 线路上的SSH协议，将交换机限制为仅 SSH 链接<br>比如：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># line vty 0 15</span></span><br><span class="line"><span class="comment"># transport input ssh</span></span><br><span class="line"><span class="comment"># login local</span></span><br><span class="line"><span class="comment"># end</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>PC使用 SSH 连接交换机<br><code>ssh -l wenxb 10.10.10.11</code><br>之后输入密码即可</li>
+</ol>
+<h4 id="端口安全"><a href="#端口安全" class="headerlink" title="端口安全"></a>端口安全</h4><p>使用<code>switchport mode access</code>切换工作模式</p>
+<p>使用 <code>switchport port-security</code> 来启用端口安全</p>
+<ol>
+<li><p>安全 MAC 地址类型</p>
+<p> <strong>静态安全 MAC 地址：</strong>使用 <strong>switchport port-security mac-address</strong> <em>mac-address</em> 来手动配置MAC    地址。此方法的MAC地址存储在地址表中并添加到交换机的运行配置中<br> <strong>动态安全 MAC 地址：</strong>通过动态获取存储在地址表中，交换机重新启动时将被移除<br> <strong>粘性安全 MAC 地址：</strong>可以动态获取或者手动配置，存储到地址表并且保存到运行配置中</p>
+</li>
+<li><p>粘性安全 MAC 地址<br><code>switchport port-security mac-address sticky</code> 启用粘性获取<br><code>switchport port-security mac-address sticky &quot;mac-address&quot;</code> 手动添加地址<br><code>no switchport port-security mac-address sticky</code> 禁用粘性获取</p>
+</li>
+<li><p>端口安全：违规模式</p>
+<p>| 违规模式 | 转发流量 | 发出Syslog消息 | 显示错误消息 | 增加违规计数器 | 关闭端口 |<br>| ———— | ———— | ——————— | —————— | ——————— | ———— |<br>| 保护     | 否       | 否             | 否           | 否             | 否       |<br>| 限制     | 否       | 是             | 否           | 是             | 是       |<br>| 关闭     | 否       | 否             | 否           | 是             | 是       |</p>
+</li>
+</ol>
+<p><code>switchport port-security violation &#123;protect | restrict | shutdown&#125;</code> 配置命令模式<br><code>switchport port-security maximum 10</code> MAC地址最大数量</p>
+<ol>
+<li>验证端口安全<br>在<strong>特权模式</strong>下显示端口安全设置 <code>show port-security interface</code></li>
+</ol>
+<div class="post-end"><span>-------- 本文已结束 </span><i class="fa-solid fa-feather"></i><span> 喜欢请分享 --------</span></div><div class="post-tools"><div class="share-link"><div class="share-copyurl jy-btn" title="复制链接" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-link"></i></div><div class="share-qrcode"><div class="qrcode-btn jy-btn"><i class="fa-fw fas fa-qrcode"></i><div class="qrcode-main"><div class="qrcode-box c-shadow"><div id="qrcode"></div><div class="text">当前页面二维码</div></div></div></div></div></div><div class="post-tags"><a class="cate" href="/tags/%E6%80%9D%E7%A7%91/"># 思科</a></div></div><div class="post-copyright"><div class="post-copyright-title"><span>思科网络技术教程笔记</span></div><div class="post-copyright-url"><a href="https://www.youngwen.com/p/5dc68ba4.html">https://www.youngwen.com/p/5dc68ba4.html</a><button class="post-copyright-copybtn" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-paste"></i></button></div><div class="post-copyright-notice"><span>文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可协议，转载请注明来自<a href="https://www.youngwen.com">WENXB</a></span></div></div><div id="pagination"><div class="post-pagination"><div class="prev-post"><a href="/p/4a0ab33a.html"><i class="fa-solid fa-angle-left"></i> Hexo本地测试自动刷新浏览器</a></div><div class="next-post"><a href="/p/4dca92c5.html">MySQL补考复习 <i class="fa-solid fa-angle-right"></i></a></div></div></div><div class="head-line"><span>评论</span></div><div class="comment-inner"><div><div id="valine-comment"></div></div></div></div></main><aside class="col-md-3 hidden-xs" id="sidebar"><div class="side-sticky"><div class="side-widget-posttoc side-widget"><div class="side-headline"><i class="fa-solid fa-bars-staggered"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="toc-number">2.0.1.</span> <span class="toc-text">模式切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">2.0.2.</span> <span class="toc-text">配置主机名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E8%AE%BE%E5%A4%87"><span class="toc-number">2.0.3.</span> <span class="toc-text">保护设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEIP%E5%9C%B0%E5%9D%80"><span class="toc-number">2.0.4.</span> <span class="toc-text">配置IP地址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="toc-number">2.1.1.</span> <span class="toc-text">安全远程访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%AE%89%E5%85%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">端口安全</span></a></li></ol></li></ol></li></ol></div></div><div class="side-widget-categories side-widget"><div class="side-headline"><i class="fa-solid fa-box-open"></i><span> 分类</span></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">日志记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E8%A8%80%E6%9D%82%E8%AF%AD/">闲言杂语</a></li></ul></div><div class="side-widget-tags side-widget"><div class="side-headline"><i class="fa-solid fa-tag"></i><span> 标签</span></div><div class="side-tag-lists"><a href="/tags/AndroidStudio/" style="font-size: 0.72rem; color: #f0524f">AndroidStudio</a> <a href="/tags/HTML/" style="font-size: 0.72rem; color: #589df6">HTML</a> <a href="/tags/IDEA/" style="font-size: 0.72rem; color: #f0524f">IDEA</a> <a href="/tags/Java/" style="font-size: 0.72rem; color: #589df6">Java</a> <a href="/tags/MySQL/" style="font-size: 0.72rem; color: #f0524f">MySQL</a> <a href="/tags/QQ/" style="font-size: 0.72rem; color: #f0524f">QQ</a> <a href="/tags/Tampermonkey/" style="font-size: 0.72rem; color: #f0524f">Tampermonkey</a> <a href="/tags/WordPress/" style="font-size: 0.72rem; color: #f0524f">WordPress</a> <a href="/tags/centos/" style="font-size: 0.72rem; color: #f0524f">centos</a> <a href="/tags/eclipse/" style="font-size: 0.72rem; color: #f0524f">eclipse</a> <a href="/tags/hexo/" style="font-size: 0.72rem; color: #589df6">hexo</a> <a href="/tags/hide/" style="font-size: 0.72rem; color: #f0524f">hide</a> <a href="/tags/windows10/" style="font-size: 0.72rem; color: #f0524f">windows10</a> <a href="/tags/%E5%B0%8F%E7%B1%B3/" style="font-size: 0.72rem; color: #f0524f">小米</a> <a href="/tags/%E6%80%9D%E7%A7%91/" style="font-size: 0.72rem; color: #f0524f">思科</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 0.72rem; color: #f0524f">技巧</a> <a href="/tags/%E6%98%9F%E5%BA%A7/" style="font-size: 0.72rem; color: #f0524f">星座</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">百度网盘</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">网盘</a></div></div><div class="side-widget-count side-widget"><div class="side-headline"><i class="fas fa-chart-line"></i><span>网站统计</span></div><ul class="side-site-count"><li class="site-count"><div class="title">文章总数 :</div><div class="count">22</div></li><li class="site-count"><div class="title">已运行天数 :</div><div class="count" id="site-runtime-day"></div></li><li class="site-count"><div class="title">总字数 :</div><div class="count">38k</div></li><li class="site-count"><div class="title">总访客 :</div><div class="count" id="busuanzi_value_site_uv"></div></li><li class="site-count"><div class="title">总访问量 :</div><div class="count" id="busuanzi_value_site_pv"></div></li></ul></div></div></aside></div></div><footer id="footer"><div class="footer-inner"><a target="_blank" rel="noopener" href="https://hexo.io">Hexo </a><i class="fa-solid fa-heart"></i><a target="_blank" rel="noopener" href="https://hexo.juyovo.com"> Juyo</a><br><div class="one"><a target="_blank" rel="noopener" href="//beian.miit.gov.cn/">黔ICP备2022001175号</a></div><div class="two"></div><div class="three"></div><div class="site-runtime">已经度过了 <div id="site-runtime"></div></div></div></footer></div></div><div id="right-side"><div class="right-back-top"><button class="jy-btn" id="go-top"><i class="fa-solid fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-inner"><div class="local-search-input"><div class="local-search-content"><input id="search-input" autofocus="autofocus" autocapitalize="off" autocomplete="off" placeholder="输入关键词搜索..." type="text"/><button class="search-close-btn fa-solid fa-xmark"></button></div></div><div class="search-headline"><span>本地搜索</span></div><div id="local-search-results"></div><div class="local-search-loding" style="text-align:center"><i class="fas fa-spinner fa-pulse"></i><span>  加载中...</span></div></div><div id="search-mask"></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.juyovo.com/libs/medium-zoom/medium-zoom.min.js"></script><script>var preloader = {
+    endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("pre-loaded")
+    },
+    initLoading: () => {
+        document.body.style.overflow = 'hidden';
+        document.getElementById('loading-box').classList.remove("pre-loaded")
+
+    }
+}
+window.addEventListener('load',preloader.endLoading())</script><script src="https://cdn.juyovo.com/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><script>function panguFn () {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+        getScript('https://cdn.juyovo.com/libs/pangu/4.0.7/pangu.min.js')
+            .then(() => {
+                pangu.autoSpacingPage()
+            })
+    }
+}</script><script>function qrcodeFn(){
+    if (document.getElementById('qrcode')) {
+        getScript('https://cdn.juyovo.com/libs/qrcodejs/1.0.0/qrcode.min.js')
+            .then(() => {
+                var href = window.location.href
+                if(window.location.search){
+                    var root_url = href.split("?")[0]
+                }else{
+                    root_url = href
+                }
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: root_url,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000",
+                    colorLight: "#fff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            })
+
+    }
+}
+window.addEventListener('pjax:complete',qrcodeFn)</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async data-pjax></script><div class="js-pjax"><script>(() => {
+    const $mermaidWrap = document.querySelectorAll('.post-inner .mermaid-wrap')
+    if ($mermaidWrap.length) {
+        window.runMermaid = () => {
+            window.loadMermaid = true
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+            Array.from($mermaidWrap).forEach((item, index) => {
+                const mermaidSrc = item.firstElementChild
+                const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+                const mermaidID = 'mermaid-' + index
+                const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+                mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+                    mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+                })
+            })
+        }
+
+        const loadMermaid = () => {
+            window.loadMermaid ? runMermaid() : getScript('https://cdn.juyovo.com/libs/mermaid/mermaid.min.js').then(runMermaid)
+        }
+
+        window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    }
+})()</script><script>(() => {
+    const $post_img = document.getElementById('post-info-img');
+    if ($post_img) {
+        window.runRgbster = () => {
+            const exclude = GLOBAL_CONFIG.rgbaster.exclude;
+            const img = $post_img.src || $post_img.getAttribute('data-lazy-src')
+            RGBaster.colors(img, {
+                exclude: exclude, success: function (payload) {
+                    document.body.style.setProperty('--post-info-color', payload.dominant);
+                }
+            })
+        }
+        const loadRgbster = () => {
+            getScript('https://cdn.juyovo.com/libs/rgbaster/2/rgbaster.min.js').then(runRgbster)
+        }
+        window.pjax ? loadRgbster() : document.addEventListener('DOMContentLoaded', loadRgbster)
+    } else {
+        document.body.style.setProperty('--post-info-color', '');
+    }
+})()</script><script>function loadValine () {
+    function initValine () {
+        new Valine(Object.assign({
+            el: '#valine-comment',
+            appId: 'Bm6HXIExfKsMvbSCz7cXgkRR-gzGzoHsz',
+            appKey: 'BtsnRH1lSMDN1axm5Cj02oIz',
+            avatar: 'mp',
+            serverURLs: '',
+            path: window.location.pathname,
+            visitor: true
+        }, null))
+    }
+
+    if (typeof Valine === 'function') initValine()
+    else getScript('https://cdn.juyovo.com/libs/valine/1.4.18/Valine.min.js').then(initValine)
+}
+
+if ('valine' === 'valine'){
+    loadValine()
+}</script></div><link rel="stylesheet" href="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.juyovo.com/libs/metingjs/1.2.0/Meting-wipe.min.js"></script><script src="https://cdn.juyovo.com/libs/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#right-side",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguFn === 'function' && panguFn()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>document.addEventListener('DOMContentLoaded', function () {
+    qrcodeFn();
+    panguFn();
+})</script></div>

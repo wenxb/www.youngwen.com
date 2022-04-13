@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>Cloudreve 简单快速搭建私人网盘 - 温落阁</title><meta name="author" content="WENXB"><meta name="description" content="简介Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在底层支持不同的云存储平台，用户在实际使用时无须关心物理存储方式。你可以使用 Cloudreve 搭建个人用网盘、文件分享系统，亦或是针对大小团体的公有云系统。 橘柚云盘也采用 Cloudreve 搭建 预览地址 特点 GO 语言：最新版采用 Go 语言开发，无需 PHP 环境，对配置要求更低，它能帮您快速以最低的成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloudreve 简单快速搭建私人网盘">
+<meta property="og:url" content="https://www.youngwen.com/p/2758f00b.html">
+<meta property="og:site_name" content="温落阁">
+<meta property="og:description" content="简介Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在底层支持不同的云存储平台，用户在实际使用时无须关心物理存储方式。你可以使用 Cloudreve 搭建个人用网盘、文件分享系统，亦或是针对大小团体的公有云系统。 橘柚云盘也采用 Cloudreve 搭建 预览地址 特点 GO 语言：最新版采用 Go 语言开发，无需 PHP 环境，对配置要求更低，它能帮您快速以最低的成">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.youngwen.com/img/202204112307054.png">
+<meta property="article:published_time" content="2022-04-11T15:00:12.000Z">
+<meta property="article:modified_time" content="2022-04-12T05:26:27.983Z">
+<meta property="article:author" content="WENXB">
+<meta property="article:tag" content="网盘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.youngwen.com/img/202204112307054.png"><link rel="shortcut icon" href="https://pic.youngwen.com/img/202204101536697.ico"><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//cdn.juyovo.com"/><meta name="baidu-site-verification" content="U5JoLKvJquPpAzvL"/><meta name="google-site-verification"/><link rel="canonical" href="https://www.youngwen.com/p/2758f00b"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/font-awesome/6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script id="config-diff">var GLOBAL_CONFIG = {
+    root: '/',
+    isPost: true,
+    isHome: false,
+    isToc: true,
+    rgbaster: {"exclude":["rgb(255,255,255)","rgb(0,0,0)","rgb(254,254,254)"]},
+    title: 'Cloudreve 简单快速搭建私人网盘',
+    localSearch: 'search.xml',
+    runTime: '2021-03-09T00:00:00.000Z',
+    islazyload: true,
+    highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+    isHighlightShrink: false,
+    Snackbar: {"day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+    lightbox: 'lightbox',
+    copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+    },
+    source: {
+        justifiedGallery: {
+            js: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.js',
+            css: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.css'
+        }
+    }
+}</script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div id="loader"><div id="shadow"></div><div id="box"></div></div></div><div class="hidden-md" id="mobile-header"><div class="nav-menu-head"><button id="close-mobile-menu"><i class="fa-regular fa-circle-dot"></i></button></div><nav id="nav-menus"><div class="menus"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav></div><div id="body-wrap"><header id="header"><div class="header-inner"><div class="visible-xs" id="navbar-toggle"><i class="fa-solid fa-align-left"></i></div><div id="site-name"><a href="/" title="温落阁">温落阁</a></div><nav id="nav-menus"><div class="menus f-left"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav><div class="r-menu"><div class="search-btn"><a href="javascript:void(0);" id="search-btn"><i class="fa-fw fas fa-search"></i></a></div><div class="moon-switch hidden-xs"><a href="javascript:void(0);" id="moon-switch"><i class="fa-fw fa-regular fa-moon"></i></a></div></div></div></header><div class="page-info post" style="background-image: url('https://pic.youngwen.com/img/202204112307054.png')"><div class="post-top-img"><img id="post-info-img" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204112307054.png"></div><div class="page-info-content container"><div class="post-meta-info"><div class="post-meta-categories"><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></div></div><div class="post-meta-tags hidden-xs"><a class="tag" href="/tags/%E7%BD%91%E7%9B%98/"># 网盘</a></div></div><h2 class="post-title">Cloudreve 简单快速搭建私人网盘</h2><div class="post-meta-content"><div class="post-meta-word-count"><i class="fas fa-file-word fa-fw"></i><span class="word-count" title="字数大约">6k</span></div><div class="post-meta-date"><i class="fa-fw fas fa-calendar"></i><time title="发布时间:2022-4-13">2022-4-13</time></div><div class="post-meta-reading"><i class="fab fa-hotjar fa-fw"></i><span title="热度" id="busuanzi_value_page_pv"></span></div><div class="post-meta-commentcount"></div></div></div></div><div class="layout"><div class="content-inner container"><div class="row" id="main"><main class="col-md-9 col-xs-12"><div class="post-inner"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在底层支持不同的云存储平台，用户在实际使用时无须关心物理存储方式。你可以使用 Cloudreve 搭建个人用网盘、文件分享系统，亦或是针对大小团体的公有云系统。</p>
+<p>橘柚云盘也采用 Cloudreve 搭建 <a target="_blank" rel="noopener" href="https://pan.juyovo.com/">预览地址</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li><strong>GO 语言：</strong>最新版采用 Go 语言开发，无需 PHP 环境，对配置要求更低，它能帮您快速以最低的成本搭建一个公私兼备的网盘系统。</li>
+<li><strong>多端存储：</strong>支持本机、从机、七牛、阿里云 OSS、腾讯云 COS、又拍云、OneDrive (包括世纪互联版) 作为存储端</li>
+<li><strong>直传/支持限速：</strong>上传/下载 支持客户端直传，支持下载限速</li>
+<li><strong>离线下载：</strong>可对接 Aria2 离线下载，可使用多个从机机点分担下载任务</li>
+<li><strong>在线解/压缩：</strong>在线 压缩/解压缩、多文件打包下载</li>
+<li><strong>WebDAV 协议：</strong>覆盖全部存储策略的 WebDAV 协议支持</li>
+<li><strong>拖拽上传：</strong>拖拽上传、目录上传、流式上传处理</li>
+<li><strong>多用户管理：</strong>文件拖拽管理，多用户、用户组</li>
+<li><strong>自动过期：</strong>创建文件、目录的分享链接，可设定自动过期</li>
+<li><strong>在线预览：</strong>视频、图像、音频、文本、Office 文档在线预览</li>
+<li><strong>黑暗模式：</strong>自定义配色、黑暗模式、PWA 应用、全站单页应用</li>
+<li><strong>开箱即用：</strong>All-In-One 打包，开箱即用等等</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>你可以在 <a target="_blank" rel="noopener" href="https://www.juyovo.com/?golink=aHR0cHM6Ly9naXRodWIuY29tL2Nsb3VkcmV2ZS9DbG91ZHJldmUvcmVsZWFzZXM=">GitHub Release</a> 页面下载压缩包</p>
+<p>或直接下载：</p>
+<p><strong>[Cloudreve_v\</strong>3.3.2*<em>](<a target="_blank" rel="noopener" href="https://pan.juyovo.com/s/2biP)*">https://pan.juyovo.com/s/2biP)*</a></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#解压获取到的主程序</span><br><span class="line"></span><br><span class="line">tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 赋予执行权限</span><br><span class="line"></span><br><span class="line">chmod +x ./cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 启动 Cloudreve</span><br><span class="line"></span><br><span class="line">./cloudreve</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>首次启动会创建初始管理员账号，先拿个小本本记好，账号密码只会出现一次</p>
+<p>如果您忘记初始管理员密码，需要删除同级目录下的 <code>cloudreve.db</code>，重新启动主程序以初始化新的管理员账户。</p>
+<p>Cloudreve 默认会监听 <code>5212</code> 端口。你可以在浏览器中访问 <code>http://服务器 IP:5212</code> 进入 Cloudreve。</p>
+<h2 id="宝塔安装方式"><a href="#宝塔安装方式" class="headerlink" title="宝塔安装方式"></a>宝塔安装方式</h2><p>以下是通过宝塔的方式安装Cloudreve </p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>此时，程序已经运行起来了，下一步开启反向代理</p>
+<p>如果安装了<strong>宝塔</strong>，在网站设置-反向代理-添加反向代理，填写内容如下</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202202151136726.jpg!copy?imageMogr2/format/jpg/interlace/0/quality/90|watermark/2/text/YnnmqZjmn5rlsI_nq5k/font/c2ltaGVp6buR5L2TLnR0Zg/fontsize/16/fill/IzY2NjY2Ng/dissolve/80/gravity/southeast/dx/10/dy/10" alt=""></p>
+<h3 id="进程守护"><a href="#进程守护" class="headerlink" title="进程守护"></a>进程守护</h3><p>这个时候的程序是在终端开启的，一旦关闭了终端程序也会被关闭，解决办法：</p>
+<p>宝塔里面搜索安装 <strong>Supervisor</strong> 插件</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202202151142204.jpg!copy?imageMogr2/format/jpg/interlace/0/quality/90|watermark/2/text/YnnmqZjmn5rlsI_nq5k/font/c2ltaGVp6buR5L2TLnR0Zg/fontsize/16/fill/IzY2NjY2Ng/dissolve/80/gravity/southeast/dx/10/dy/10" alt=""></p>
+<p>添加进程守护</p>
+<p>名称随意</p>
+<p>运行目录：填写网站根目录</p>
+<p>启动命令：网站根路径 + ./cloudreve</p>
+<p>其他默认就行</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202202151144902.jpg!copy?imageMogr2/format/jpg/interlace/0/quality/90|watermark/2/text/YnnmqZjmn5rlsI_nq5k/font/c2ltaGVp6buR5L2TLnR0Zg/fontsize/16/fill/IzY2NjY2Ng/dissolve/80/gravity/southeast/dx/10/dy/10" alt=""></p>
+<h2 id="无宝塔安装"><a href="#无宝塔安装" class="headerlink" title="无宝塔安装"></a>无宝塔安装</h2><p>如果没有宝塔的话：</p>
+<h3 id="开启反向代理"><a href="#开启反向代理" class="headerlink" title="开启反向代理"></a>开启反向代理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line"></span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line"></span><br><span class="line">    proxy_redirect off;</span><br><span class="line"></span><br><span class="line">    proxy_pass http://127.0.0.1:5212;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # 如果您要使用本地存储策略，请将下一行注释符删除，并更改大小为理论最大文件尺寸</span><br><span class="line"></span><br><span class="line">    # client_max_body_size 20000m;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加进程守护"><a href="#添加进程守护" class="headerlink" title="添加进程守护"></a>添加进程守护</h3><p><strong>第一种：Systemd</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 编辑配置文件</span><br><span class="line"></span><br><span class="line">vim /usr/lib/systemd/system/cloudreve.service</span><br></pre></td></tr></table></figure>
+<p>将下文 <code>PATH_TO_CLOUDREVE</code> 更换为程序所在目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"></span><br><span class="line">Description=Cloudreve</span><br><span class="line"></span><br><span class="line">Documentation=https://docs.cloudreve.org</span><br><span class="line"></span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">After=mysqld.service</span><br><span class="line"></span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"></span><br><span class="line">WorkingDirectory=/PATH_TO_CLOUDREVE</span><br><span class="line"></span><br><span class="line">ExecStart=/PATH_TO_CLOUDREVE/cloudreve</span><br><span class="line"></span><br><span class="line">Restart=on-abnormal</span><br><span class="line"></span><br><span class="line">RestartSec=5s</span><br><span class="line"></span><br><span class="line">KillMode=mixed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">StandardOutput=null</span><br><span class="line"></span><br><span class="line">StandardError=syslog</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"></span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"># 更新配置</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line"></span><br><span class="line">systemctl start cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置开机启动</span><br><span class="line"></span><br><span class="line">systemctl enable cloudreve</span><br></pre></td></tr></table></figure>
+<p>管理命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 启动服务</span><br><span class="line"></span><br><span class="line">systemctl start cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 停止服务</span><br><span class="line"></span><br><span class="line">systemctl stop cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 重启服务</span><br><span class="line"></span><br><span class="line">systemctl restart cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看状态</span><br><span class="line"></span><br><span class="line">systemctl status cloudreve</span><br></pre></td></tr></table></figure>
+<p><strong>第二种：Supervisor</strong></p>
+<p>首先安装 <code>supervisor</code>，已安装的可以跳过。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 安装 supervisor</span><br><span class="line"></span><br><span class="line">sudo yum install python-setuptools</span><br><span class="line"></span><br><span class="line">sudo easy_install supervisor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 初始化全局配置文件</span><br><span class="line"></span><br><span class="line">sudo touch /etc/supervisord.conf</span><br><span class="line"></span><br><span class="line">sudo echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+<p>编辑全局配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+<p>将文件底部的 <code>[include]</code> 分区注释符号<code>;</code> 删除，加入新的配置文件包含路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[include]</span><br><span class="line"></span><br><span class="line">files = /etc/supervisor/conf/*.conf</span><br></pre></td></tr></table></figure>
+<p>创建 Cloudreve 应用配置所在文件目录，并创建打开配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/supervisor/conf</span><br><span class="line"></span><br><span class="line">sudo vim /etc/supervisor/conf/cloudreve.conf</span><br></pre></td></tr></table></figure>
+<p>根据实际情况填写以下内容并保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[program:cloudreve]</span><br><span class="line"></span><br><span class="line"># Clopudreve 主程序所在目录</span><br><span class="line"></span><br><span class="line">directory=/home/cloudreve</span><br><span class="line"></span><br><span class="line"># 主程序绝对路径</span><br><span class="line"></span><br><span class="line">command=/home/cloudreve/cloudreve</span><br><span class="line"></span><br><span class="line"># 自动开启</span><br><span class="line"></span><br><span class="line">autostart=true</span><br><span class="line"></span><br><span class="line"># 自动重启</span><br><span class="line"></span><br><span class="line">autorestart=true</span><br><span class="line"></span><br><span class="line"># 错误日志路径</span><br><span class="line"></span><br><span class="line">stderr_logfile=/var/log/cloudreve.err</span><br><span class="line"></span><br><span class="line"># 运行日志路径</span><br><span class="line"></span><br><span class="line">stdout_logfile=/var/log/cloudreve.log</span><br><span class="line"></span><br><span class="line"># 运行环境，默认就行</span><br><span class="line"></span><br><span class="line">environment=CODENATION_ENV=prod</span><br></pre></td></tr></table></figure>
+<p>通过全局配置文件启动 supervisor：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+<p>日后你可以通过以下指令管理 Cloudreve 进程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line"></span><br><span class="line">sudo supervisorctl start cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 停止</span><br><span class="line"></span><br><span class="line">sudo supervisorctl stop cloudreve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 查看状态</span><br><span class="line"></span><br><span class="line">sudo supervisorctl status cloudreve</span><br></pre></td></tr></table></figure>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>你可以选择使用以下镜像部署：</p>
+<p><a target="_blank" rel="noopener" href="https://www.juyovo.com/?golink=aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL3hhdmllcm5pdS9jbG91ZHJldmU=">xavierniu/cloudreve</a></p>
+<p>现在你应该可以访问了</p>
+<p>等一下，还没完</p>
+<p>默认数据库使用的是 sqlite ，如果需要使用 MySQL，需要编辑配置文件</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>根据官方文档，首次启动时，Cloudreve 会在同级目录下创建名为 <code>conf.ini</code> 的配置文件，你可以修改此文件进行一些参数的配置，保存后需要重新启动 Cloudreve 生效。</p>
+<p>一个完整的配置文件示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line"></span><br><span class="line">; 运行模式</span><br><span class="line"></span><br><span class="line">Mode = master</span><br><span class="line"></span><br><span class="line">; 监听端口</span><br><span class="line"></span><br><span class="line">Listen = :5000</span><br><span class="line"></span><br><span class="line">; 是否开启 Debug</span><br><span class="line"></span><br><span class="line">Debug = false</span><br><span class="line"></span><br><span class="line">; Session 密钥, 一般在首次启动时自动生成</span><br><span class="line"></span><br><span class="line">SessionSecret = 23333</span><br><span class="line"></span><br><span class="line">; Hash 加盐, 一般在首次启动时自动生成</span><br><span class="line"></span><br><span class="line">HashIDSalt = something really hard to guss</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; SSL 相关</span><br><span class="line"></span><br><span class="line">[SSL]</span><br><span class="line"></span><br><span class="line">; SSL 监听端口</span><br><span class="line"></span><br><span class="line">Listen = :443</span><br><span class="line"></span><br><span class="line">; 证书路径</span><br><span class="line"></span><br><span class="line">CertPath = C:UsersiDocumentsfullchain.pem</span><br><span class="line"></span><br><span class="line">; 私钥路径</span><br><span class="line"></span><br><span class="line">KeyPath = C:UsersiDocumentsprivkey.pem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 启用 Unix Socket 监听</span><br><span class="line"></span><br><span class="line">[UnixSocket]</span><br><span class="line"></span><br><span class="line">Listen = /run/cloudreve/cloudreve.sock</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 数据库相关，如果你只想使用内置的 SQLite 数据库，这一部分直接删去即可</span><br><span class="line"></span><br><span class="line">[Database]</span><br><span class="line"></span><br><span class="line">; 数据库类型，目前支持 sqlite/mysql/mssql/postgres</span><br><span class="line"></span><br><span class="line">Type = mysql</span><br><span class="line"></span><br><span class="line">; MySQL 端口</span><br><span class="line"></span><br><span class="line">Port = 3306</span><br><span class="line"></span><br><span class="line">; 用户名</span><br><span class="line"></span><br><span class="line">User = root</span><br><span class="line"></span><br><span class="line">; 密码</span><br><span class="line"></span><br><span class="line">Password = root</span><br><span class="line"></span><br><span class="line">; 数据库地址</span><br><span class="line"></span><br><span class="line">Host = 127.0.0.1</span><br><span class="line"></span><br><span class="line">; 数据库名称</span><br><span class="line"></span><br><span class="line">Name = v3</span><br><span class="line"></span><br><span class="line">; 数据表前缀</span><br><span class="line"></span><br><span class="line">TablePrefix = cd_</span><br><span class="line"></span><br><span class="line">; 字符集</span><br><span class="line"></span><br><span class="line">Charset = utf8</span><br><span class="line"></span><br><span class="line">; SQLite 数据库文件路径</span><br><span class="line"></span><br><span class="line">DBFile = cloudreve.db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 从机模式下的配置</span><br><span class="line"></span><br><span class="line">[Slave]</span><br><span class="line"></span><br><span class="line">; 通信密钥</span><br><span class="line"></span><br><span class="line">Secret = 1234567891234567123456789123456712345678912345671234567891234567</span><br><span class="line"></span><br><span class="line">; 回调请求超时时间 (s)</span><br><span class="line"></span><br><span class="line">CallbackTimeout = 20</span><br><span class="line"></span><br><span class="line">; 签名有效期</span><br><span class="line"></span><br><span class="line">SignatureTTL = 60</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 跨域配置</span><br><span class="line"></span><br><span class="line">[CORS]</span><br><span class="line"></span><br><span class="line">AllowOrigins = *</span><br><span class="line"></span><br><span class="line">AllowMethods = OPTIONS,GET,POST</span><br><span class="line"></span><br><span class="line">AllowHeaders = *</span><br><span class="line"></span><br><span class="line">AllowCredentials = false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; Redis 相关</span><br><span class="line"></span><br><span class="line">[Redis]</span><br><span class="line"></span><br><span class="line">Server = 127.0.0.1:6379</span><br><span class="line"></span><br><span class="line">Password =</span><br><span class="line"></span><br><span class="line">DB = 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">; 缩略图</span><br><span class="line"></span><br><span class="line">[Thumbnail]</span><br><span class="line"></span><br><span class="line">MaxWidth = 400</span><br><span class="line"></span><br><span class="line">MaxHeight = 300</span><br><span class="line"></span><br><span class="line">FileSuffix = ._thumb</span><br><span class="line"></span><br><span class="line">; 最大并行执行缩略图生成的数量，填写 -1 时会根据 CPU 核心数自动决定</span><br><span class="line"></span><br><span class="line">MaxTaskCount = -1</span><br><span class="line"></span><br><span class="line">; 可填写 jpg / png</span><br><span class="line"></span><br><span class="line">EncodeMethod = jpg</span><br><span class="line"></span><br><span class="line">; 是否在缩略图生成完毕后立刻进行垃圾回收</span><br><span class="line"></span><br><span class="line">GCAfterGen = false</span><br><span class="line"></span><br><span class="line">; 缩略图质量</span><br><span class="line"></span><br><span class="line">EncodeQuality = 85</span><br></pre></td></tr></table></figure>
+<p>当然并不需要每个都配置</p>
+<h3 id="使用-MySQL"><a href="#使用-MySQL" class="headerlink" title="使用 MySQL"></a>使用 MySQL</h3><p>注意，Cloudreve 只支持大于或等于 5.7 版本的 MySQL，编辑配置文件后重启生效</p>
+<p>更换数据库配置后，Cloudreve 会重新初始化数据库，原有的数据将会丢失。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[Database]</span><br><span class="line"></span><br><span class="line">; 数据库类型，目前支持 sqlite/mysql/mssql/postgres</span><br><span class="line"></span><br><span class="line">Type = mysql</span><br><span class="line"></span><br><span class="line">; MySQL 端口</span><br><span class="line"></span><br><span class="line">Port = 3306</span><br><span class="line"></span><br><span class="line">; 用户名</span><br><span class="line"></span><br><span class="line">User = root</span><br><span class="line"></span><br><span class="line">; 密码</span><br><span class="line"></span><br><span class="line">Password = root</span><br><span class="line"></span><br><span class="line">; 数据库地址</span><br><span class="line"></span><br><span class="line">Host = 127.0.0.1</span><br><span class="line"></span><br><span class="line">; 数据库名称</span><br><span class="line"></span><br><span class="line">Name = v3</span><br><span class="line"></span><br><span class="line">; 数据表前缀</span><br><span class="line"></span><br><span class="line">TablePrefix = cd</span><br><span class="line"></span><br><span class="line">; 字符集</span><br><span class="line"></span><br><span class="line">Charset = utf8</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Redis"><a href="#使用-Redis" class="headerlink" title="使用 Redis"></a>使用 Redis</h3><p>请为 Cloudreve 指定未被其他业务使用的 DB，以避免冲突。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Redis]</span><br><span class="line"></span><br><span class="line">Server = 127.0.0.1:6379</span><br><span class="line"></span><br><span class="line">Password = your password</span><br><span class="line"></span><br><span class="line">DB = 0</span><br></pre></td></tr></table></figure>
+<p>重启 Cloudreve 后，可注意控制台输出，确定 Cloudreve 是否成功连接 Redis 服务器。使用 Redis 后，以下内容将被 Redis 接管：</p>
+<ul>
+<li>用户会话（重启 Cloudreve 后不会再丢失登录会话）</li>
+<li>数据表高频记录查询缓存（如存储策略、设置项）</li>
+<li>回调会话</li>
+<li>OneDrive 凭证</li>
+</ul>
+<h3 id="启用-HTTPS"><a href="#启用-HTTPS" class="headerlink" title="启用 HTTPS"></a>启用 HTTPS</h3><p>如果您正在使用 Web 服务器反向代理 Cloudreve，推荐您在 Web 服务器中配置 SSL，本小节所阐述的启用方式只针对使用 Cloudreve 内置 Web 服务器的情境下有效。</p>
+<p>在配置配置文件中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[SSL]</span><br><span class="line"></span><br><span class="line">Listen = :443</span><br><span class="line"></span><br><span class="line">CertPath = C:UsersiDocumentsfullchain.pem</span><br><span class="line"></span><br><span class="line">KeyPath = C:UsersiDocumentsprivkey.pem</span><br></pre></td></tr></table></figure>
+<p>其中 <code>CertPath</code> 和 <code>KeyPath</code> 分别为 SSL 证书和私钥路径。保存后重启 Cloudreve 生效。</p>
+<p>更多详细文档请前往 <a target="_blank" rel="noopener" href="https://www.juyovo.com/?golink=aHR0cHM6Ly9kb2NzLmNsb3VkcmV2ZS5vcmcv">官方文档</a></p>
+<div class="post-end"><span>-------- 本文已结束 </span><i class="fa-solid fa-feather"></i><span> 喜欢请分享 --------</span></div><div class="post-tools"><div class="share-link"><div class="share-copyurl jy-btn" title="复制链接" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-link"></i></div><div class="share-qrcode"><div class="qrcode-btn jy-btn"><i class="fa-fw fas fa-qrcode"></i><div class="qrcode-main"><div class="qrcode-box c-shadow"><div id="qrcode"></div><div class="text">当前页面二维码</div></div></div></div></div></div><div class="post-tags"><a class="cate" href="/tags/%E7%BD%91%E7%9B%98/"># 网盘</a></div></div><div class="post-copyright"><div class="post-copyright-title"><span>Cloudreve 简单快速搭建私人网盘</span></div><div class="post-copyright-url"><a href="https://www.youngwen.com/p/2758f00b.html">https://www.youngwen.com/p/2758f00b.html</a><button class="post-copyright-copybtn" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-paste"></i></button></div><div class="post-copyright-notice"><span>文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可协议，转载请注明来自<a href="https://www.youngwen.com">WENXB</a></span></div></div><div id="pagination"><div class="post-pagination"><div class="prev-post"><a href="/p/c0b1e32e.html"><i class="fa-solid fa-angle-left"></i> 突破百度网盘限速方法，使用 IDM 工具满速下载</a></div><div class="next-post"><a href="/p/cae81682.html">JetBrains 全家桶永久免费使用 <i class="fa-solid fa-angle-right"></i></a></div></div></div><div class="head-line"><span>评论</span></div><div class="comment-inner"><div><div id="valine-comment"></div></div></div></div></main><aside class="col-md-3 hidden-xs" id="sidebar"><div class="side-sticky"><div class="side-widget-posttoc side-widget"><div class="side-headline"><i class="fa-solid fa-bars-staggered"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9D%E5%A1%94%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">宝塔安装方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4"><span class="toc-number">4.2.</span> <span class="toc-text">进程守护</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%AE%9D%E5%A1%94%E5%AE%89%E8%A3%85"><span class="toc-number">5.</span> <span class="toc-text">无宝塔安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">开启反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9B%E7%A8%8B%E5%AE%88%E6%8A%A4"><span class="toc-number">5.2.</span> <span class="toc-text">添加进程守护</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number">6.</span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-MySQL"><span class="toc-number">7.1.</span> <span class="toc-text">使用 MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Redis"><span class="toc-number">7.2.</span> <span class="toc-text">使用 Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-HTTPS"><span class="toc-number">7.3.</span> <span class="toc-text">启用 HTTPS</span></a></li></ol></li></ol></div></div><div class="side-widget-categories side-widget"><div class="side-headline"><i class="fa-solid fa-box-open"></i><span> 分类</span></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">日志记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E8%A8%80%E6%9D%82%E8%AF%AD/">闲言杂语</a></li></ul></div><div class="side-widget-tags side-widget"><div class="side-headline"><i class="fa-solid fa-tag"></i><span> 标签</span></div><div class="side-tag-lists"><a href="/tags/AndroidStudio/" style="font-size: 0.72rem; color: #f0524f">AndroidStudio</a> <a href="/tags/HTML/" style="font-size: 0.72rem; color: #589df6">HTML</a> <a href="/tags/IDEA/" style="font-size: 0.72rem; color: #f0524f">IDEA</a> <a href="/tags/Java/" style="font-size: 0.72rem; color: #589df6">Java</a> <a href="/tags/MySQL/" style="font-size: 0.72rem; color: #f0524f">MySQL</a> <a href="/tags/QQ/" style="font-size: 0.72rem; color: #f0524f">QQ</a> <a href="/tags/Tampermonkey/" style="font-size: 0.72rem; color: #f0524f">Tampermonkey</a> <a href="/tags/WordPress/" style="font-size: 0.72rem; color: #f0524f">WordPress</a> <a href="/tags/centos/" style="font-size: 0.72rem; color: #f0524f">centos</a> <a href="/tags/eclipse/" style="font-size: 0.72rem; color: #f0524f">eclipse</a> <a href="/tags/hexo/" style="font-size: 0.72rem; color: #589df6">hexo</a> <a href="/tags/hide/" style="font-size: 0.72rem; color: #f0524f">hide</a> <a href="/tags/windows10/" style="font-size: 0.72rem; color: #f0524f">windows10</a> <a href="/tags/%E5%B0%8F%E7%B1%B3/" style="font-size: 0.72rem; color: #f0524f">小米</a> <a href="/tags/%E6%80%9D%E7%A7%91/" style="font-size: 0.72rem; color: #f0524f">思科</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 0.72rem; color: #f0524f">技巧</a> <a href="/tags/%E6%98%9F%E5%BA%A7/" style="font-size: 0.72rem; color: #f0524f">星座</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">百度网盘</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">网盘</a></div></div><div class="side-widget-count side-widget"><div class="side-headline"><i class="fas fa-chart-line"></i><span>网站统计</span></div><ul class="side-site-count"><li class="site-count"><div class="title">文章总数 :</div><div class="count">22</div></li><li class="site-count"><div class="title">已运行天数 :</div><div class="count" id="site-runtime-day"></div></li><li class="site-count"><div class="title">总字数 :</div><div class="count">38k</div></li><li class="site-count"><div class="title">总访客 :</div><div class="count" id="busuanzi_value_site_uv"></div></li><li class="site-count"><div class="title">总访问量 :</div><div class="count" id="busuanzi_value_site_pv"></div></li></ul></div></div></aside></div></div><footer id="footer"><div class="footer-inner"><a target="_blank" rel="noopener" href="https://hexo.io">Hexo </a><i class="fa-solid fa-heart"></i><a target="_blank" rel="noopener" href="https://hexo.juyovo.com"> Juyo</a><br><div class="one"><a target="_blank" rel="noopener" href="//beian.miit.gov.cn/">黔ICP备2022001175号</a></div><div class="two"></div><div class="three"></div><div class="site-runtime">已经度过了 <div id="site-runtime"></div></div></div></footer></div></div><div id="right-side"><div class="right-back-top"><button class="jy-btn" id="go-top"><i class="fa-solid fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-inner"><div class="local-search-input"><div class="local-search-content"><input id="search-input" autofocus="autofocus" autocapitalize="off" autocomplete="off" placeholder="输入关键词搜索..." type="text"/><button class="search-close-btn fa-solid fa-xmark"></button></div></div><div class="search-headline"><span>本地搜索</span></div><div id="local-search-results"></div><div class="local-search-loding" style="text-align:center"><i class="fas fa-spinner fa-pulse"></i><span>  加载中...</span></div></div><div id="search-mask"></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.juyovo.com/libs/medium-zoom/medium-zoom.min.js"></script><script>var preloader = {
+    endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("pre-loaded")
+    },
+    initLoading: () => {
+        document.body.style.overflow = 'hidden';
+        document.getElementById('loading-box').classList.remove("pre-loaded")
+
+    }
+}
+window.addEventListener('load',preloader.endLoading())</script><script src="https://cdn.juyovo.com/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><script>function panguFn () {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+        getScript('https://cdn.juyovo.com/libs/pangu/4.0.7/pangu.min.js')
+            .then(() => {
+                pangu.autoSpacingPage()
+            })
+    }
+}</script><script>function qrcodeFn(){
+    if (document.getElementById('qrcode')) {
+        getScript('https://cdn.juyovo.com/libs/qrcodejs/1.0.0/qrcode.min.js')
+            .then(() => {
+                var href = window.location.href
+                if(window.location.search){
+                    var root_url = href.split("?")[0]
+                }else{
+                    root_url = href
+                }
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: root_url,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000",
+                    colorLight: "#fff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            })
+
+    }
+}
+window.addEventListener('pjax:complete',qrcodeFn)</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async data-pjax></script><div class="js-pjax"><script>(() => {
+    const $mermaidWrap = document.querySelectorAll('.post-inner .mermaid-wrap')
+    if ($mermaidWrap.length) {
+        window.runMermaid = () => {
+            window.loadMermaid = true
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+            Array.from($mermaidWrap).forEach((item, index) => {
+                const mermaidSrc = item.firstElementChild
+                const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+                const mermaidID = 'mermaid-' + index
+                const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+                mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+                    mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+                })
+            })
+        }
+
+        const loadMermaid = () => {
+            window.loadMermaid ? runMermaid() : getScript('https://cdn.juyovo.com/libs/mermaid/mermaid.min.js').then(runMermaid)
+        }
+
+        window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    }
+})()</script><script>(() => {
+    const $post_img = document.getElementById('post-info-img');
+    if ($post_img) {
+        window.runRgbster = () => {
+            const exclude = GLOBAL_CONFIG.rgbaster.exclude;
+            const img = $post_img.src || $post_img.getAttribute('data-lazy-src')
+            RGBaster.colors(img, {
+                exclude: exclude, success: function (payload) {
+                    document.body.style.setProperty('--post-info-color', payload.dominant);
+                }
+            })
+        }
+        const loadRgbster = () => {
+            getScript('https://cdn.juyovo.com/libs/rgbaster/2/rgbaster.min.js').then(runRgbster)
+        }
+        window.pjax ? loadRgbster() : document.addEventListener('DOMContentLoaded', loadRgbster)
+    } else {
+        document.body.style.setProperty('--post-info-color', '');
+    }
+})()</script><script>function loadValine () {
+    function initValine () {
+        new Valine(Object.assign({
+            el: '#valine-comment',
+            appId: 'Bm6HXIExfKsMvbSCz7cXgkRR-gzGzoHsz',
+            appKey: 'BtsnRH1lSMDN1axm5Cj02oIz',
+            avatar: 'mp',
+            serverURLs: '',
+            path: window.location.pathname,
+            visitor: true
+        }, null))
+    }
+
+    if (typeof Valine === 'function') initValine()
+    else getScript('https://cdn.juyovo.com/libs/valine/1.4.18/Valine.min.js').then(initValine)
+}
+
+if ('valine' === 'valine'){
+    loadValine()
+}</script></div><link rel="stylesheet" href="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.juyovo.com/libs/metingjs/1.2.0/Meting-wipe.min.js"></script><script src="https://cdn.juyovo.com/libs/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#right-side",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguFn === 'function' && panguFn()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>document.addEventListener('DOMContentLoaded', function () {
+    qrcodeFn();
+    panguFn();
+})</script></div>

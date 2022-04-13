@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>HTML基础学习笔记整理(1) - 温落阁</title><meta name="author" content="WENXB"><meta name="description" content="HTML基础学习笔记整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML基础学习笔记整理(1)">
+<meta property="og:url" content="https://www.youngwen.com/p/a021886a.html">
+<meta property="og:site_name" content="温落阁">
+<meta property="og:description" content="HTML基础学习笔记整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.youngwen.com/img/202204102114445.jpg">
+<meta property="article:published_time" content="2021-05-12T01:52:36.000Z">
+<meta property="article:modified_time" content="2022-04-12T05:18:27.678Z">
+<meta property="article:author" content="WENXB">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.youngwen.com/img/202204102114445.jpg"><link rel="shortcut icon" href="https://pic.youngwen.com/img/202204101536697.ico"><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//cdn.juyovo.com"/><meta name="baidu-site-verification" content="U5JoLKvJquPpAzvL"/><meta name="google-site-verification"/><link rel="canonical" href="https://www.youngwen.com/p/a021886a"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/font-awesome/6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script id="config-diff">var GLOBAL_CONFIG = {
+    root: '/',
+    isPost: true,
+    isHome: false,
+    isToc: true,
+    rgbaster: {"exclude":["rgb(255,255,255)","rgb(0,0,0)","rgb(254,254,254)"]},
+    title: 'HTML基础学习笔记整理(1)',
+    localSearch: 'search.xml',
+    runTime: '2021-03-09T00:00:00.000Z',
+    islazyload: true,
+    highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+    isHighlightShrink: false,
+    Snackbar: {"day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+    lightbox: 'lightbox',
+    copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+    },
+    source: {
+        justifiedGallery: {
+            js: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.js',
+            css: 'https://cdn.juyovo.com/libs/flickr-justified-gallery/fjGallery.min.css'
+        }
+    }
+}</script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div id="loader"><div id="shadow"></div><div id="box"></div></div></div><div class="hidden-md" id="mobile-header"><div class="nav-menu-head"><button id="close-mobile-menu"><i class="fa-regular fa-circle-dot"></i></button></div><nav id="nav-menus"><div class="menus"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav></div><div id="body-wrap"><header id="header"><div class="header-inner"><div class="visible-xs" id="navbar-toggle"><i class="fa-solid fa-align-left"></i></div><div id="site-name"><a href="/" title="温落阁">温落阁</a></div><nav id="nav-menus"><div class="menus f-left"><ul><li class="menu"><a class="name" href="/"><i class="fa-fw fas fa-home"></i><span>首页</span></a></li><li class="menu"><a class="name" href="/archives/"><i class="fa-fw fas fa-archive"></i><span>文章</span></a></li><li class="menu"><a class="name" href="/tags/"><i class="fa-fw fas fa-tags"></i><span>标签</span></a></li><li class="menu"><a class="name" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span>分类</span></a></li><li class="menu"><a class="name" href="/link/"><i class="fa-fw fas fa-heart"></i><span>友情链接</span></a></li><li class="menu"><a class="name group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span>本站</span><i class="fas fa-chevron-down"></i></a><ul class="sub-menus bg-filter"><li><a class="child" href="/about/"><span>关于</span></a></li><li><a class="child" target="_blank" rel="noopener" href="https://status.youngwen.com/"><span>网站状态</span></a></li></ul></li></ul></div></nav><div class="r-menu"><div class="search-btn"><a href="javascript:void(0);" id="search-btn"><i class="fa-fw fas fa-search"></i></a></div><div class="moon-switch hidden-xs"><a href="javascript:void(0);" id="moon-switch"><i class="fa-fw fa-regular fa-moon"></i></a></div></div></div></header><div class="page-info post" style="background-image: url('https://pic.youngwen.com/img/202204102114445.jpg')"><div class="post-top-img"><img id="post-info-img" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204102114445.jpg"></div><div class="page-info-content container"><div class="post-meta-info"><div class="post-meta-categories"><div class="cate"><i class="fa-fw fas fa-book-bookmark"></i><a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div></div><div class="post-meta-tags hidden-xs"><a class="tag" href="/tags/HTML/"># HTML</a></div></div><h2 class="post-title">HTML基础学习笔记整理(1)</h2><div class="post-meta-content"><div class="post-meta-word-count"><i class="fas fa-file-word fa-fw"></i><span class="word-count" title="字数大约">1.9k</span></div><div class="post-meta-date"><i class="fa-fw fas fa-calendar"></i><time title="发布时间:2022-4-13">2022-4-13</time></div><div class="post-meta-reading"><i class="fab fa-hotjar fa-fw"></i><span title="热度" id="busuanzi_value_page_pv"></span></div><div class="post-meta-commentcount"></div></div></div></div><div class="layout"><div class="content-inner container"><div class="row" id="main"><main class="col-md-9 col-xs-12"><div class="post-inner"><div class="note blue no-icon flat"><p>笔记分为两部分，第一部分了解HTML是什么，第二部分是具体常用的标签</p>
+<p>稍微整理一下，方便大家查看，顺便也当作是给自己复习</p>
+</div>
+<h1 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h1><h2 id="初识HTML"><a href="#初识HTML" class="headerlink" title="初识HTML"></a>初识HTML</h2><ol>
+<li>HTML 指的是<code>超文本标记语言</code> (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)是用来描述网页的一种语言。</li>
+<li>HTML 不是一种编程语言，而是一种<code>标记语言</code> (markup language)</li>
+<li><p>标记语言是一套<code>标记标签</code> (markup tag)</p>
+<p><strong>pink老师 一句话说出html作用:</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>网页是由网页元素组成的 ， 这些元素是利用html标签描述出来，然后通过浏览器解析，就可以显示给用户了。</p>
+</blockquote>
+<p><strong>所谓的超文本就是：</strong></p>
+<ol>
+<li>它可以加入图片、声音、动画、多媒体等内容（<strong>超越文本限制</strong>)</li>
+<li>它还可以从一个文件跳转到另一个文件(<strong>超级链接文本</strong>)</li>
+<li>总之 html 是超文本标记(标签)语言</li>
+<li><strong>H</strong>（很）<strong>T</strong>（甜）<strong>M</strong>（蜜）<strong>L</strong>（啦） 是很快乐的一件事情</li>
+</ol>
+<h2 id="HTML的基本骨架"><a href="#HTML的基本骨架" class="headerlink" title="HTML的基本骨架"></a>HTML的基本骨架</h2><p>HTML 有自己的语言语法骨架格式(<span class='p red'>必须严格遵守</span>)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span>     </span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ul>
+<li><code>&lt;html&gt;</code> :HTML标签,页面中最大的标签，我们称为根标签</li>
+<li><code>&lt;head&gt;</code>:文档的头部,必须要设置的标签是title</li>
+<li><code>&lt;titile&gt;</code>:文档的标题,也就是浏览器导航栏要显示的文本</li>
+<li><code>&lt;body&gt;</code>:文档的主体，包含文档的所有内容，现显示的内容都放在这里</li>
+<li>HTML标签名、类名、标签属性和大部分属性值统一用<code>小写</code></li>
+</ul>
+<h2 id="HTML元素标签分类"><a href="#HTML元素标签分类" class="headerlink" title="HTML元素标签分类"></a>HTML元素标签分类</h2><ol>
+<li><p>常规元素（双标签）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;标签名&gt; 内容 &lt;/标签名&gt;   比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>  我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>有开始标签就有结束标签</strong></p>
+</li>
+<li><p><strong>和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>空元素（单标签）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;标签名 /&gt;  比如</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简单点说，就是里面不需要包含内容,不需要闭合</li>
+<li>例如<code>&lt;img /&gt;</code> <code>&lt;br /&gt;</code> <code>&lt;input /&gt;</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>pink老师 一句话说出他们:</strong></p>
+<blockquote>
+<p>世界上单身狗毕竟是少数的， 大部分还是喜欢成双成对，不要拉下你的另外一半，对待一个双标签要有始有终。</p>
+</blockquote>
+<h2 id="HTML标签关系"><a href="#HTML标签关系" class="headerlink" title="HTML标签关系"></a>HTML标签关系</h2><ol>
+<li><p>嵌套</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;  </span><br><span class="line">	&lt;title&gt; &lt;/title&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>并列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;&lt;/head&gt;</span><br><span class="line">&lt;body&gt;&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span> <span class="comment">&lt;!-- !DOCTYPE一般大写 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>pink老师 一句话说出他们:</strong></p>
+<blockquote>
+<p>   &lt;!DOCTYPE html&gt;  就是告诉浏览器按照HTML5 规范解析页面.</p>
+</blockquote>
+<p><strong>团队约定</strong></p>
+<p>HTML文件必须加上 DOCTYPE 声明，并统一使用 HTML5 的文档声明</p>
+<h2 id="页面语言lang"><a href="#页面语言lang" class="headerlink" title="页面语言lang"></a>页面语言lang</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span><span class="comment">&lt;!-- 指定html 语言种类  英文:en 中文:zh-CN --&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span><span class="comment">&lt;!-- 必须写！ --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>字符集(Character set)是多个字符的集合。utf-8是目前最常用的字符集编码方式</p>
+<p>计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</p>
+<p><strong>团队约定：</strong></p>
+<p>一般情况下统一使用 “UTF-8” 编码, 请尽量统一写成标准的 “UTF-8”，不要写成 “utf-8” 或 “utf8” 或 “UTF8”。</p>
+<h2 id="HTML标签的语义化"><a href="#HTML标签的语义化" class="headerlink" title="HTML标签的语义化"></a>HTML标签的语义化</h2><p>所谓标签语义化，就是指标签代表的含义。</p>
+<p>合理使用的语义化标签的目的：</p>
+<ol>
+<li>方便代码的阅读和维护，让结构更清晰。</li>
+<li>同时让浏览器或是网络爬虫可以很好地解析，从而更好分析其中的内容 </li>
+<li>使用语义化标签会具有更好地搜索引擎优化（SEO）</li>
+</ol>
+<p>语义是否良好： 当我们去掉CSS之后，网页结构依然组织有序，并且有良好的可读性。(  裸奔起来一样好看 )</p>
+<div class="post-end"><span>-------- 本文已结束 </span><i class="fa-solid fa-feather"></i><span> 喜欢请分享 --------</span></div><div class="post-tools"><div class="share-link"><div class="share-copyurl jy-btn" title="复制链接" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-link"></i></div><div class="share-qrcode"><div class="qrcode-btn jy-btn"><i class="fa-fw fas fa-qrcode"></i><div class="qrcode-main"><div class="qrcode-box c-shadow"><div id="qrcode"></div><div class="text">当前页面二维码</div></div></div></div></div></div><div class="post-tags"><a class="cate" href="/tags/HTML/"># HTML</a></div></div><div class="post-copyright"><div class="post-copyright-title"><span>HTML基础学习笔记整理(1)</span></div><div class="post-copyright-url"><a href="https://www.youngwen.com/p/a021886a.html">https://www.youngwen.com/p/a021886a.html</a><button class="post-copyright-copybtn" onclick="jyUtils.copyPageUrl()"><i class="fa-fw fas fa-paste"></i></button></div><div class="post-copyright-notice"><span>文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>许可协议，转载请注明来自<a href="https://www.youngwen.com">WENXB</a></span></div></div><div id="pagination"><div class="post-pagination"><div class="prev-post"><a href="/p/c07ca3e7.html"><i class="fa-solid fa-angle-left"></i> Android Studio 详细安装配置教程</a></div><div class="next-post"><a href="/p/b71217c3.html">HTML基础学习笔记整理(2) <i class="fa-solid fa-angle-right"></i></a></div></div></div><div class="head-line"><span>相关推荐</span></div><div class="related-posts"><div class="related-posts-lists"><div class="related-posts-item"><a href="/p/b71217c3.html" title="HTML基础学习笔记整理(2)"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://pic.youngwen.com/img/202204102114287.jpg" alt="cover"><div class="mask"></div><div class="title">HTML基础学习笔记整理(2)</div></a></div></div></div><div class="head-line"><span>评论</span></div><div class="comment-inner"><div><div id="valine-comment"></div></div></div></div></main><aside class="col-md-3 hidden-xs" id="sidebar"><div class="side-sticky"><div class="side-widget-posttoc side-widget"><div class="side-headline"><i class="fa-solid fa-bars-staggered"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">第一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E8%AF%86HTML"><span class="toc-number">1.1.</span> <span class="toc-text">初识HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%AA%A8%E6%9E%B6"><span class="toc-number">1.2.</span> <span class="toc-text">HTML的基本骨架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">说明：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E5%85%83%E7%B4%A0%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">HTML元素标签分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%A0%87%E7%AD%BE%E5%85%B3%E7%B3%BB"><span class="toc-number">1.4.</span> <span class="toc-text">HTML标签关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B-lt-DOCTYPE-gt"><span class="toc-number">1.5.</span> <span class="toc-text">文档类型&lt;!DOCTYPE&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E8%AF%AD%E8%A8%80lang"><span class="toc-number">1.6.</span> <span class="toc-text">页面语言lang</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">1.7.</span> <span class="toc-text">字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="toc-number">1.8.</span> <span class="toc-text">HTML标签的语义化</span></a></li></ol></li></ol></div></div><div class="side-widget-categories side-widget"><div class="side-headline"><i class="fa-solid fa-box-open"></i><span> 分类</span></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/">日志记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90/">软件资源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E8%A8%80%E6%9D%82%E8%AF%AD/">闲言杂语</a></li></ul></div><div class="side-widget-tags side-widget"><div class="side-headline"><i class="fa-solid fa-tag"></i><span> 标签</span></div><div class="side-tag-lists"><a href="/tags/AndroidStudio/" style="font-size: 0.72rem; color: #f0524f">AndroidStudio</a> <a href="/tags/HTML/" style="font-size: 0.72rem; color: #589df6">HTML</a> <a href="/tags/IDEA/" style="font-size: 0.72rem; color: #f0524f">IDEA</a> <a href="/tags/Java/" style="font-size: 0.72rem; color: #589df6">Java</a> <a href="/tags/MySQL/" style="font-size: 0.72rem; color: #f0524f">MySQL</a> <a href="/tags/QQ/" style="font-size: 0.72rem; color: #f0524f">QQ</a> <a href="/tags/Tampermonkey/" style="font-size: 0.72rem; color: #f0524f">Tampermonkey</a> <a href="/tags/WordPress/" style="font-size: 0.72rem; color: #f0524f">WordPress</a> <a href="/tags/centos/" style="font-size: 0.72rem; color: #f0524f">centos</a> <a href="/tags/eclipse/" style="font-size: 0.72rem; color: #f0524f">eclipse</a> <a href="/tags/hexo/" style="font-size: 0.72rem; color: #589df6">hexo</a> <a href="/tags/hide/" style="font-size: 0.72rem; color: #f0524f">hide</a> <a href="/tags/windows10/" style="font-size: 0.72rem; color: #f0524f">windows10</a> <a href="/tags/%E5%B0%8F%E7%B1%B3/" style="font-size: 0.72rem; color: #f0524f">小米</a> <a href="/tags/%E6%80%9D%E7%A7%91/" style="font-size: 0.72rem; color: #f0524f">思科</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 0.72rem; color: #f0524f">技巧</a> <a href="/tags/%E6%98%9F%E5%BA%A7/" style="font-size: 0.72rem; color: #f0524f">星座</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">百度网盘</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 0.72rem; color: #f0524f">网盘</a></div></div><div class="side-widget-count side-widget"><div class="side-headline"><i class="fas fa-chart-line"></i><span>网站统计</span></div><ul class="side-site-count"><li class="site-count"><div class="title">文章总数 :</div><div class="count">22</div></li><li class="site-count"><div class="title">已运行天数 :</div><div class="count" id="site-runtime-day"></div></li><li class="site-count"><div class="title">总字数 :</div><div class="count">38k</div></li><li class="site-count"><div class="title">总访客 :</div><div class="count" id="busuanzi_value_site_uv"></div></li><li class="site-count"><div class="title">总访问量 :</div><div class="count" id="busuanzi_value_site_pv"></div></li></ul></div></div></aside></div></div><footer id="footer"><div class="footer-inner"><a target="_blank" rel="noopener" href="https://hexo.io">Hexo </a><i class="fa-solid fa-heart"></i><a target="_blank" rel="noopener" href="https://hexo.juyovo.com"> Juyo</a><br><div class="one"><a target="_blank" rel="noopener" href="//beian.miit.gov.cn/">黔ICP备2022001175号</a></div><div class="two"></div><div class="three"></div><div class="site-runtime">已经度过了 <div id="site-runtime"></div></div></div></footer></div></div><div id="right-side"><div class="right-back-top"><button class="jy-btn" id="go-top"><i class="fa-solid fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-inner"><div class="local-search-input"><div class="local-search-content"><input id="search-input" autofocus="autofocus" autocapitalize="off" autocomplete="off" placeholder="输入关键词搜索..." type="text"/><button class="search-close-btn fa-solid fa-xmark"></button></div></div><div class="search-headline"><span>本地搜索</span></div><div id="local-search-results"></div><div class="local-search-loding" style="text-align:center"><i class="fas fa-spinner fa-pulse"></i><span>  加载中...</span></div></div><div id="search-mask"></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.juyovo.com/libs/medium-zoom/medium-zoom.min.js"></script><script>var preloader = {
+    endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("pre-loaded")
+    },
+    initLoading: () => {
+        document.body.style.overflow = 'hidden';
+        document.getElementById('loading-box').classList.remove("pre-loaded")
+
+    }
+}
+window.addEventListener('load',preloader.endLoading())</script><script src="https://cdn.juyovo.com/libs/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://cdn.juyovo.com/libs/snackbarjs/0.1.16/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.juyovo.com/libs/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><script>function panguFn () {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+        getScript('https://cdn.juyovo.com/libs/pangu/4.0.7/pangu.min.js')
+            .then(() => {
+                pangu.autoSpacingPage()
+            })
+    }
+}</script><script>function qrcodeFn(){
+    if (document.getElementById('qrcode')) {
+        getScript('https://cdn.juyovo.com/libs/qrcodejs/1.0.0/qrcode.min.js')
+            .then(() => {
+                var href = window.location.href
+                if(window.location.search){
+                    var root_url = href.split("?")[0]
+                }else{
+                    root_url = href
+                }
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: root_url,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000",
+                    colorLight: "#fff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            })
+
+    }
+}
+window.addEventListener('pjax:complete',qrcodeFn)</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async data-pjax></script><div class="js-pjax"><script>(() => {
+    const $mermaidWrap = document.querySelectorAll('.post-inner .mermaid-wrap')
+    if ($mermaidWrap.length) {
+        window.runMermaid = () => {
+            window.loadMermaid = true
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+            Array.from($mermaidWrap).forEach((item, index) => {
+                const mermaidSrc = item.firstElementChild
+                const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+                const mermaidID = 'mermaid-' + index
+                const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+                mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+                    mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+                })
+            })
+        }
+
+        const loadMermaid = () => {
+            window.loadMermaid ? runMermaid() : getScript('https://cdn.juyovo.com/libs/mermaid/mermaid.min.js').then(runMermaid)
+        }
+
+        window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    }
+})()</script><script>(() => {
+    const $post_img = document.getElementById('post-info-img');
+    if ($post_img) {
+        window.runRgbster = () => {
+            const exclude = GLOBAL_CONFIG.rgbaster.exclude;
+            const img = $post_img.src || $post_img.getAttribute('data-lazy-src')
+            RGBaster.colors(img, {
+                exclude: exclude, success: function (payload) {
+                    document.body.style.setProperty('--post-info-color', payload.dominant);
+                }
+            })
+        }
+        const loadRgbster = () => {
+            getScript('https://cdn.juyovo.com/libs/rgbaster/2/rgbaster.min.js').then(runRgbster)
+        }
+        window.pjax ? loadRgbster() : document.addEventListener('DOMContentLoaded', loadRgbster)
+    } else {
+        document.body.style.setProperty('--post-info-color', '');
+    }
+})()</script><script>function loadValine () {
+    function initValine () {
+        new Valine(Object.assign({
+            el: '#valine-comment',
+            appId: 'Bm6HXIExfKsMvbSCz7cXgkRR-gzGzoHsz',
+            appKey: 'BtsnRH1lSMDN1axm5Cj02oIz',
+            avatar: 'mp',
+            serverURLs: '',
+            path: window.location.pathname,
+            visitor: true
+        }, null))
+    }
+
+    if (typeof Valine === 'function') initValine()
+    else getScript('https://cdn.juyovo.com/libs/valine/1.4.18/Valine.min.js').then(initValine)
+}
+
+if ('valine' === 'valine'){
+    loadValine()
+}</script></div><link rel="stylesheet" href="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.juyovo.com/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.juyovo.com/libs/metingjs/1.2.0/Meting-wipe.min.js"></script><script src="https://cdn.juyovo.com/libs/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#right-side",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguFn === 'function' && panguFn()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>document.addEventListener('DOMContentLoaded', function () {
+    qrcodeFn();
+    panguFn();
+})</script></div>
