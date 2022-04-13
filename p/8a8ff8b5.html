@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.youngwen.com/img/202204131603963.jpg">
 <meta property="article:published_time" content="2022-04-13T07:49:50.000Z">
-<meta property="article:modified_time" content="2022-04-13T09:07:50.841Z">
+<meta property="article:modified_time" content="2022-04-13T09:27:17.698Z">
 <meta property="article:author" content="WENXB">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 <p><code>server_ip</code> 服务器 IP 地址</p>
 <p>复制密钥会让你输入一次Git用户密码，之后就不需要密码了</p>
 <h3 id="禁用-shell-登录"><a href="#禁用-shell-登录" class="headerlink" title="禁用 shell 登录"></a>禁用 shell 登录</h3><p>为了安全起见禁用 git 用户的 shell 登录权限，从而只能用 git clone，git push 等登录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su root //切换root用户</span><br><span class="line">cat /etc/shells // 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell // 查看是否安装</span><br><span class="line">vi /etc/passwd  //修改 /etc/passwd 中的权限</span><br><span class="line">// 将原来的</span><br><span class="line">git:x:1000:1000::/home/git:/bin/bash</span><br><span class="line"></span><br><span class="line">// 修改为</span><br><span class="line">git:x:1000:1000::/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su root //切换root用户</span><br><span class="line">cat /etc/shells // 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell // 查看是否安装</span><br><span class="line">vi /etc/passwd  //修改 /etc/passwd 中的权限</span><br><span class="line">// 将原来的</span><br><span class="line">git:x:1000:1000::/home/git:/bin/bash</span><br><span class="line"></span><br><span class="line">// 修改为 </span><br><span class="line">git:x:1000:1000::/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
 <h3 id="hexo-配置"><a href="#hexo-配置" class="headerlink" title="hexo 配置"></a>hexo 配置</h3><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>打开_config.yml 配置文件，找到 deploy</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repository:</span><br><span class="line">      server: git@server_ip:/home/git/repos/blog.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
